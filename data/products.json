@@ -1,178 +1,297 @@
 [
   {
-    "id": 101,
+    "id": 1,
     "name": "Snake Plant",
     "category": "Indoor Plants",
-    "price": 399,
+    "price": 499,
     "image": "/images/snake-plant.jpg",
-    "description": "Low maintenance indoor plant perfect for beginners"
+    "description": "Low maintenance air purifying plant",
+    "scientificName": "Sansevieria trifasciata",
+    "careLevel": "Easy"
   },
   {
-    "id": 102,
-    "name": "Monstera Deliciosa",
+    "id": 2,
+    "name": "Money Plant",
     "category": "Indoor Plants",
-    "price": 599,
-    "image": "/images/monstera.jpg",
-    "description": "Statement plant with beautiful split leaves"
+    "price": 349,
+    "image": "/images/money-plant.jpg",
+    "description": "Perfect for beginners, air purifying",
+    "scientificName": "Epipremnum aureum",
+    "careLevel": "Easy"
   },
   {
-    "id": 103,
+    "id": 3,
     "name": "Pothos",
     "category": "Indoor Plants",
-    "price": 299,
+    "price": 399,
     "image": "/images/pothos.jpg",
-    "description": "Trailing vine plant, easy to grow"
+    "description": "Trailing vine, easy to grow",
+    "scientificName": "Epipremnum aureum",
+    "careLevel": "Easy"
   },
   {
-    "id": 104,
+    "id": 4,
     "name": "Peace Lily",
     "category": "Indoor Plants",
-    "price": 449,
+    "price": 599,
     "image": "/images/peace-lily.jpg",
-    "description": "Elegant indoor plant with white flowers"
+    "description": "Elegant indoor plant with white flowers",
+    "scientificName": "Spathiphyllum wallisii",
+    "careLevel": "Easy"
   },
   {
-    "id": 201,
+    "id": 5,
+    "name": "Spider Plant",
+    "category": "Indoor Plants",
+    "price": 379,
+    "image": "/images/spider-plant.jpg",
+    "description": "Hardy and air purifying",
+    "scientificName": "Chlorophytum comosum",
+    "careLevel": "Easy"
+  },
+  {
+    "id": 6,
+    "name": "Lucky Bamboo",
+    "category": "Indoor Plants",
+    "price": 449,
+    "image": "/images/lucky-bamboo.jpg",
+    "description": "Brings prosperity and good fortune",
+    "scientificName": "Dracaena sanderiana",
+    "careLevel": "Easy"
+  },
+  {
+    "id": 7,
+    "name": "Rubber Plant",
+    "category": "Indoor Plants",
+    "price": 899,
+    "image": "/images/rubber-plant.jpg",
+    "description": "Statement plant, air purifying",
+    "scientificName": "Ficus elastica",
+    "careLevel": "Medium"
+  },
+  {
+    "id": 8,
+    "name": "Monstera Deliciosa",
+    "category": "Indoor Plants",
+    "price": 1299,
+    "image": "/images/monstera.jpg",
+    "description": "Trendy split leaf plant",
+    "scientificName": "Monstera deliciosa",
+    "careLevel": "Easy"
+  },
+  {
+    "id": 9,
+    "name": "Philodendron",
+    "category": "Indoor Plants",
+    "price": 549,
+    "image": "/images/philodendron.jpg",
+    "description": "Versatile and air purifying",
+    "scientificName": "Philodendron hederaceum",
+    "careLevel": "Easy"
+  },
+  {
+    "id": 10,
+    "name": "Syngonium",
+    "category": "Indoor Plants",
+    "price": 499,
+    "image": "/images/syngonium.jpg",
+    "description": "Arrow-shaped leaves, air purifying",
+    "scientificName": "Syngonium podophyllum",
+    "careLevel": "Easy"
+  },
+  {
+    "id": 11,
+    "name": "Tulsi/Holy Basil",
+    "category": "Indoor Plants",
+    "price": 249,
+    "image": "/images/tulsi.jpg",
+    "description": "Medicinal and aromatic plant",
+    "scientificName": "Ocimum sanctum",
+    "careLevel": "Easy",
+    "medicinal": true
+  },
+  {
+    "id": 12,
+    "name": "Fern",
+    "category": "Indoor Plants",
+    "price": 449,
+    "image": "/images/fern.jpg",
+    "description": "Delicate feathery leaves",
+    "scientificName": "Pteridium aquilinum",
+    "careLevel": "Medium"
+  },
+  {
+    "id": 13,
+    "name": "Aloe Vera",
+    "category": "Succulents",
+    "price": 299,
+    "image": "/images/aloe-vera.jpg",
+    "description": "Medicinal succulent, very easy care",
+    "scientificName": "Aloe barbadensis",
+    "careLevel": "Easy",
+    "medicinal": true
+  },
+  {
+    "id": 14,
+    "name": "Jade Plant",
+    "category": "Succulents",
+    "price": 399,
+    "image": "/images/jade-plant.jpg",
+    "description": "Money plant in feng shui, low maintenance",
+    "scientificName": "Crassula ovata",
+    "careLevel": "Easy"
+  },
+  {
+    "id": 15,
+    "name": "Echeveria",
+    "category": "Succulents",
+    "price": 199,
+    "image": "/images/echeveria.jpg",
+    "description": "Beautiful rosette succulent",
+    "scientificName": "Echeveria elegans",
+    "careLevel": "Easy"
+  },
+  {
+    "id": 16,
     "name": "Bougainvillea",
     "category": "Outdoor Plants",
-    "price": 699,
+    "price": 799,
     "image": "/images/bougainvillea.jpg",
-    "description": "Vibrant flowering plant for gardens"
+    "description": "Vibrant flowering plant for gardens",
+    "scientificName": "Bougainvillea spectabilis",
+    "careLevel": "Medium"
   },
   {
-    "id": 202,
+    "id": 17,
     "name": "Jasmine",
     "category": "Outdoor Plants",
-    "price": 549,
+    "price": 599,
     "image": "/images/jasmine.jpg",
-    "description": "Fragrant climbing plant"
+    "description": "Fragrant flowering plant",
+    "scientificName": "Jasminum sambac",
+    "careLevel": "Medium"
   },
   {
-    "id": 203,
+    "id": 18,
     "name": "Neem Tree",
     "category": "Outdoor Plants",
-    "price": 899,
+    "price": 1499,
     "image": "/images/neem-tree.jpg",
-    "description": "Medicinal outdoor tree"
+    "description": "Medicinal outdoor tree",
+    "scientificName": "Azadirachta indica",
+    "careLevel": "Easy",
+    "medicinal": true
   },
   {
-    "id": 301,
+    "id": 19,
     "name": "Rose Plant",
-    "category": "Flowering Plants",
-    "price": 549,
+    "category": "Seasonal Plants",
+    "price": 699,
     "image": "/images/rose.jpg",
-    "description": "Beautiful red roses for your garden"
+    "description": "Beautiful red roses for your garden",
+    "scientificName": "Rosa spp.",
+    "careLevel": "Medium"
   },
   {
-    "id": 302,
+    "id": 20,
     "name": "Hibiscus",
-    "category": "Flowering Plants",
-    "price": 449,
+    "category": "Seasonal Plants",
+    "price": 549,
     "image": "/images/hibiscus.jpg",
-    "description": "Colorful tropical flowering plant"
+    "description": "Colorful tropical flowering plant",
+    "scientificName": "Hibiscus rosa-sinensis",
+    "careLevel": "Medium"
   },
   {
-    "id": 303,
-    "name": "Sunflower",
-    "category": "Flowering Plants",
+    "id": 21,
+    "name": "Creeping Fig",
+    "category": "Creepers & Hanging Plants",
     "price": 349,
-    "image": "/images/sunflower.jpg",
-    "description": "Bright yellow flowering plant"
+    "image": "/images/creeping-fig.jpg",
+    "description": "Perfect for vertical gardens",
+    "scientificName": "Ficus pumila",
+    "careLevel": "Medium"
   },
   {
-    "id": 401,
-    "name": "Mango Tree",
-    "category": "Fruit Plants",
-    "price": 1299,
-    "image": "/images/mango-tree.jpg",
-    "description": "Dwarf mango tree for small spaces"
+    "id": 22,
+    "name": "Heartleaf Philodendron",
+    "category": "Creepers & Hanging Plants",
+    "price": 449,
+    "image": "/images/heartleaf-philo.jpg",
+    "description": "Trailing vine, air purifying",
+    "scientificName": "Philodendron hederaceum",
+    "careLevel": "Easy"
   },
   {
-    "id": 402,
-    "name": "Lemon Tree",
-    "category": "Fruit Plants",
-    "price": 899,
-    "image": "/images/lemon-tree.jpg",
-    "description": "Fresh lemons from your backyard"
+    "id": 23,
+    "name": "String of Pearls",
+    "category": "Creepers & Hanging Plants",
+    "price": 549,
+    "image": "/images/string-of-pearls.jpg",
+    "description": "Unique trailing succulent",
+    "scientificName": "Senecio rowleyanus",
+    "careLevel": "Medium"
   },
   {
-    "id": 403,
-    "name": "Papaya Plant",
-    "category": "Fruit Plants",
-    "price": 599,
-    "image": "/images/papaya.jpg",
-    "description": "Fast-growing fruit plant"
+    "id": 24,
+    "name": "Lemongrass",
+    "category": "Indoor Plants",
+    "price": 249,
+    "image": "/images/lemongrass.jpg",
+    "description": "Medicinal aromatic plant",
+    "scientificName": "Cymbopogon citratus",
+    "careLevel": "Easy",
+    "medicinal": true
   },
   {
-    "id": 501,
+    "id": 25,
+    "name": "Mint",
+    "category": "Indoor Plants",
+    "price": 199,
+    "image": "/images/mint.jpg",
+    "description": "Fresh mint for tea and cooking",
+    "scientificName": "Mentha piperita",
+    "careLevel": "Easy",
+    "medicinal": true
+  },
+  {
+    "id": 26,
     "name": "Terracotta Pot 6 inch",
-    "category": "Pots & Planters",
+    "category": "Garden Accessories",
     "price": 149,
     "image": "/images/pot-6inch.jpg",
     "description": "Classic terracotta planter"
   },
   {
-    "id": 502,
+    "id": 27,
     "name": "Ceramic Pot 8 inch",
-    "category": "Pots & Planters",
+    "category": "Garden Accessories",
     "price": 249,
     "image": "/images/pot-8inch.jpg",
-    "description": "Modern ceramic planter"
+    "description": "Modern ceramic planter with drainage"
   },
   {
-    "id": 503,
+    "id": 28,
     "name": "Hanging Basket",
-    "category": "Pots & Planters",
+    "category": "Garden Accessories",
     "price": 199,
     "image": "/images/hanging-basket.jpg",
     "description": "Perfect for trailing plants"
   },
   {
-    "id": 601,
-    "name": "Tomato Seeds",
-    "category": "Seeds",
-    "price": 49,
-    "image": "/images/tomato-seeds.jpg",
-    "description": "Organic tomato seeds"
-  },
-  {
-    "id": 602,
-    "name": "Herb Seeds Mix",
-    "category": "Seeds",
-    "price": 99,
-    "image": "/images/herb-seeds.jpg",
-    "description": "Basil, mint, and cilantro seeds"
-  },
-  {
-    "id": 603,
-    "name": "Flower Seeds Mix",
-    "category": "Seeds",
-    "price": 79,
-    "image": "/images/flower-seeds.jpg",
-    "description": "Mixed colorful flower seeds"
-  },
-  {
-    "id": 701,
+    "id": 29,
     "name": "Potting Soil 5kg",
-    "category": "Soil & Compost",
-    "price": 199,
+    "category": "Garden Accessories",
+    "price": 249,
     "image": "/images/potting-soil.jpg",
     "description": "Premium potting mix for indoor plants"
   },
   {
-    "id": 702,
+    "id": 30,
     "name": "Garden Compost 10kg",
-    "category": "Soil & Compost",
-    "price": 299,
+    "category": "Garden Accessories",
+    "price": 349,
     "image": "/images/compost.jpg",
     "description": "Nutrient-rich organic compost"
-  },
-  {
-    "id": 703,
-    "name": "Cocopeat Block",
-    "category": "Soil & Compost",
-    "price": 149,
-    "image": "/images/cocopeat.jpg",
-    "description": "Lightweight growing medium"
   }
 ]

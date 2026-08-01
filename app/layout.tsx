@@ -2,11 +2,17 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Nursery - Premium Plants & Garden Supplies',
+  title: 'Indore Nursery - Premium Plants & Garden Supplies',
   description:
-    'Discover premium plants, seeds, and garden supplies. Shop healthy indoor and outdoor plants with expert guidance.',
+    'Discover premium plants and garden essentials in Indore. Shop healthy indoor, outdoor, and exotic plants with expert guidance.',
   icons: {
     icon: '/favicon.ico',
+  },
+  openGraph: {
+    title: 'Indore Nursery - Premium Plants & Garden Supplies',
+    description:
+      'Best plant nursery in Indore. Fresh, healthy plants delivered to your doorstep.',
+    type: 'website',
   },
 };
 

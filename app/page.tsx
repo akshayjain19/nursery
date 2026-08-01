@@ -7,6 +7,7 @@ import CategoryCard from '@/components/CategoryCard';
 import ProductCard from '@/components/ProductCard';
 import { CATEGORIES } from '@/types';
 import products from '@/data/products.json';
+import businessConfig from '@/config/business.json';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -19,16 +20,11 @@ export default function Home() {
     count: products.filter((p) => p.category === category).length,
   }));
 
-  // Category emojis
-  const categoryEmojis: Record<string, string> = {
-    'Indoor Plants': '🪴',
-    'Outdoor Plants': '🌳',
-    'Flowering Plants': '🌸',
-    'Fruit Plants': '🍊',
-    'Pots & Planters': '🏺',
-    'Seeds': '🌾',
-    'Soil & Compost': '🌱',
-  };
+  // Category emojis from config
+  const categoryEmojis: Record<string, string> = businessConfig.categories.reduce(
+    (acc, cat) => ({ ...acc, [cat.name]: cat.emoji }),
+    {}
+  );
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -125,28 +121,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: '🌿',
-                title: 'Healthy Plants',
-                description: 'Carefully selected, premium quality plants',
-              },
-              {
-                icon: '💰',
-                title: 'Affordable Prices',
-                description: 'Best quality at competitive prices',
-              },
-              {
-                icon: '👨‍🌾',
-                title: 'Expert Guidance',
-                description: 'Free care tips and expert advice',
-              },
-              {
-                icon: '📍',
-                title: 'Local Nursery',
-                description: 'Supporting local green initiatives',
-              },
-            ].map((item, index) => (
+            {businessConfig.whyChooseUs.map((item, index) => (
               <motion.div
                 key={item.title}
                 className="bg-white rounded-xl p-6 text-center shadow-soft hover:shadow-soft-md transition-shadow"

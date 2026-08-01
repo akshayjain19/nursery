@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Button from './Button';
+import businessConfig from '@/config/business.json';
 
 export default function Navbar() {
   return (
@@ -68,7 +69,8 @@ export default function Navbar() {
               variant="primary"
               size="sm"
               onClick={() => {
-                window.open('https://wa.me/919999999999', '_blank');
+                const phoneNumber = businessConfig.contact.whatsapp.replace('+', '');
+                window.open(`https://wa.me/${phoneNumber}`, '_blank');
               }}
               className="hidden sm:inline-block"
             >

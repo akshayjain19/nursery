@@ -9,6 +9,7 @@ import products from '@/data/products.json';
 import { CATEGORIES, FilterState } from '@/types';
 import { filterProducts, getPriceRange } from '@/lib/utils';
 import { searchProducts } from '@/lib/search';
+import businessConfig from '@/config/business.json';
 import { motion } from 'framer-motion';
 
 export default function CategoriesPage() {
@@ -102,19 +103,19 @@ export default function CategoriesPage() {
                     >
                       All
                     </button>
-                    {CATEGORIES.map((cat) => (
+                    {businessConfig.categories.map((cat) => (
                       <button
-                        key={cat}
+                        key={cat.id}
                         onClick={() =>
-                          setFilters({ ...filters, category: cat })
+                          setFilters({ ...filters, category: cat.name })
                         }
                         className={`block w-full text-left px-3 py-2 rounded transition-colors ${
-                          filters.category === cat
+                          filters.category === cat.name
                             ? 'bg-primary-500 text-white font-medium'
                             : 'text-charcoal hover:bg-primary-50'
                         }`}
                       >
-                        {cat}
+                        {cat.emoji} {cat.name}
                       </button>
                     ))}
                   </div>
