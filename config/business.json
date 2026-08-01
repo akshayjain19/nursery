@@ -1,0 +1,119 @@
+{
+  "businessName": "Indore Nursery",
+  "businessDescription": "Aiding people with fresh breath and delivering peace and prosperity to their busy city lives",
+  "mission": "Bridging the gap between people and nature",
+  "tagline": "Best Plant Nursery in Indore",
+  "location": {
+    "address": "663/2 Radhakunj colony, LIG LINK ROAD",
+    "city": "Indore",
+    "state": "Madhya Pradesh",
+    "country": "India",
+    "zipCode": null
+  },
+  "contact": {
+    "phone": "+91 8305449559",
+    "email": "info@indorenursery.com",
+    "whatsapp": "+91 8305449559"
+  },
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/profile.php?id=100079261517073",
+    "instagram": "https://www.instagram.com/indorenursery",
+    "twitter": null,
+    "youtube": null
+  },
+  "website": "https://indorenursery.com",
+  "features": [
+    "Healthy Plants",
+    "Expert Guidance",
+    "Fast Delivery",
+    "Premium Quality",
+    "Wide Variety"
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Indoor Plants",
+      "description": "Air purifying plants perfect for homes and offices",
+      "emoji": "🪴",
+      "slug": "indoor-plants"
+    },
+    {
+      "id": 2,
+      "name": "Outdoor Plants",
+      "description": "Low maintenance and drought resistant varieties",
+      "emoji": "🌳",
+      "slug": "outdoor-plants"
+    },
+    {
+      "id": 3,
+      "name": "Semi-Indoor Plants",
+      "description": "Perfect for balconies and terraces",
+      "emoji": "🌱",
+      "slug": "semi-indoor-plants"
+    },
+    {
+      "id": 4,
+      "name": "Seasonal Plants",
+      "description": "Perfect for every occasion",
+      "emoji": "🌸",
+      "slug": "seasonal-plants"
+    },
+    {
+      "id": 5,
+      "name": "Landscaping Plants",
+      "description": "Professional landscaping solutions",
+      "emoji": "🏞️",
+      "slug": "landscaping-plants"
+    },
+    {
+      "id": 6,
+      "name": "Gifting Plants",
+      "description": "Special plants for gifting occasions",
+      "emoji": "🎁",
+      "slug": "gifting-plants"
+    },
+    {
+      "id": 7,
+      "name": "Succulents",
+      "description": "Low maintenance succulent varieties",
+      "emoji": "🌵",
+      "slug": "succulents"
+    },
+    {
+      "id": 8,
+      "name": "Creepers & Hanging Plants",
+      "description": "Vertical gardening and wall greenery",
+      "emoji": "🪴",
+      "slug": "creepers-hanging"
+    },
+    {
+      "id": 9,
+      "name": "Garden Accessories",
+      "description": "Pots, soil, fertilizers, and tools",
+      "emoji": "🏺",
+      "slug": "garden-accessories"
+    }
+  ],
+  "whyChooseUs": [
+    {
+      "icon": "🌿",
+      "title": "Healthy Plants",
+      "description": "Carefully selected and well-cared-for plants"
+    },
+    {
+      "icon": "👨‍🌾",
+      "title": "Expert Guidance",
+      "description": "Professional advice on plant care and maintenance"
+    },
+    {
+      "icon": "🚚",
+      "title": "Fast Delivery",
+      "description": "Quick delivery to your doorstep in Indore"
+    },
+    {
+      "icon": "💚",
+      "title": "Premium Quality",
+      "description": "Only the best plants and accessories"
+    }
+  ]
+}
