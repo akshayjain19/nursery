@@ -1,0 +1,178 @@
+[
+  {
+    "id": 101,
+    "name": "Snake Plant",
+    "category": "Indoor Plants",
+    "price": 399,
+    "image": "/images/snake-plant.jpg",
+    "description": "Low maintenance indoor plant perfect for beginners"
+  },
+  {
+    "id": 102,
+    "name": "Monstera Deliciosa",
+    "category": "Indoor Plants",
+    "price": 599,
+    "image": "/images/monstera.jpg",
+    "description": "Statement plant with beautiful split leaves"
+  },
+  {
+    "id": 103,
+    "name": "Pothos",
+    "category": "Indoor Plants",
+    "price": 299,
+    "image": "/images/pothos.jpg",
+    "description": "Trailing vine plant, easy to grow"
+  },
+  {
+    "id": 104,
+    "name": "Peace Lily",
+    "category": "Indoor Plants",
+    "price": 449,
+    "image": "/images/peace-lily.jpg",
+    "description": "Elegant indoor plant with white flowers"
+  },
+  {
+    "id": 201,
+    "name": "Bougainvillea",
+    "category": "Outdoor Plants",
+    "price": 699,
+    "image": "/images/bougainvillea.jpg",
+    "description": "Vibrant flowering plant for gardens"
+  },
+  {
+    "id": 202,
+    "name": "Jasmine",
+    "category": "Outdoor Plants",
+    "price": 549,
+    "image": "/images/jasmine.jpg",
+    "description": "Fragrant climbing plant"
+  },
+  {
+    "id": 203,
+    "name": "Neem Tree",
+    "category": "Outdoor Plants",
+    "price": 899,
+    "image": "/images/neem-tree.jpg",
+    "description": "Medicinal outdoor tree"
+  },
+  {
+    "id": 301,
+    "name": "Rose Plant",
+    "category": "Flowering Plants",
+    "price": 549,
+    "image": "/images/rose.jpg",
+    "description": "Beautiful red roses for your garden"
+  },
+  {
+    "id": 302,
+    "name": "Hibiscus",
+    "category": "Flowering Plants",
+    "price": 449,
+    "image": "/images/hibiscus.jpg",
+    "description": "Colorful tropical flowering plant"
+  },
+  {
+    "id": 303,
+    "name": "Sunflower",
+    "category": "Flowering Plants",
+    "price": 349,
+    "image": "/images/sunflower.jpg",
+    "description": "Bright yellow flowering plant"
+  },
+  {
+    "id": 401,
+    "name": "Mango Tree",
+    "category": "Fruit Plants",
+    "price": 1299,
+    "image": "/images/mango-tree.jpg",
+    "description": "Dwarf mango tree for small spaces"
+  },
+  {
+    "id": 402,
+    "name": "Lemon Tree",
+    "category": "Fruit Plants",
+    "price": 899,
+    "image": "/images/lemon-tree.jpg",
+    "description": "Fresh lemons from your backyard"
+  },
+  {
+    "id": 403,
+    "name": "Papaya Plant",
+    "category": "Fruit Plants",
+    "price": 599,
+    "image": "/images/papaya.jpg",
+    "description": "Fast-growing fruit plant"
+  },
+  {
+    "id": 501,
+    "name": "Terracotta Pot 6 inch",
+    "category": "Pots & Planters",
+    "price": 149,
+    "image": "/images/pot-6inch.jpg",
+    "description": "Classic terracotta planter"
+  },
+  {
+    "id": 502,
+    "name": "Ceramic Pot 8 inch",
+    "category": "Pots & Planters",
+    "price": 249,
+    "image": "/images/pot-8inch.jpg",
+    "description": "Modern ceramic planter"
+  },
+  {
+    "id": 503,
+    "name": "Hanging Basket",
+    "category": "Pots & Planters",
+    "price": 199,
+    "image": "/images/hanging-basket.jpg",
+    "description": "Perfect for trailing plants"
+  },
+  {
+    "id": 601,
+    "name": "Tomato Seeds",
+    "category": "Seeds",
+    "price": 49,
+    "image": "/images/tomato-seeds.jpg",
+    "description": "Organic tomato seeds"
+  },
+  {
+    "id": 602,
+    "name": "Herb Seeds Mix",
+    "category": "Seeds",
+    "price": 99,
+    "image": "/images/herb-seeds.jpg",
+    "description": "Basil, mint, and cilantro seeds"
+  },
+  {
+    "id": 603,
+    "name": "Flower Seeds Mix",
+    "category": "Seeds",
+    "price": 79,
+    "image": "/images/flower-seeds.jpg",
+    "description": "Mixed colorful flower seeds"
+  },
+  {
+    "id": 701,
+    "name": "Potting Soil 5kg",
+    "category": "Soil & Compost",
+    "price": 199,
+    "image": "/images/potting-soil.jpg",
+    "description": "Premium potting mix for indoor plants"
+  },
+  {
+    "id": 702,
+    "name": "Garden Compost 10kg",
+    "category": "Soil & Compost",
+    "price": 299,
+    "image": "/images/compost.jpg",
+    "description": "Nutrient-rich organic compost"
+  },
+  {
+    "id": 703,
+    "name": "Cocopeat Block",
+    "category": "Soil & Compost",
+    "price": 149,
+    "image": "/images/cocopeat.jpg",
+    "description": "Lightweight growing medium"
+  }
+]
