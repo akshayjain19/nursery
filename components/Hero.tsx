@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Button from './Button';
 import Link from 'next/link';
+import businessConfig from '@/config/business.json';
 
 export default function Hero() {
   return (
@@ -57,7 +58,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Bring Nature Home with Premium Plants
+              {businessConfig.tagline}
             </motion.h1>
 
             <motion.p
@@ -66,7 +67,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Discover healthy, vibrant plants and garden essentials. From indoor plants to outdoor greenery, we have everything to transform your space.
+              {businessConfig.businessDescription}
             </motion.p>
 
             <motion.div
@@ -84,7 +85,8 @@ export default function Hero() {
                 variant="outline"
                 size="lg"
                 onClick={() => {
-                  window.open('https://wa.me/919999999999', '_blank');
+                  const phoneNumber = businessConfig.contact.whatsapp.replace('+', '');
+                  window.open(`https://wa.me/${phoneNumber}`, '_blank');
                 }}
               >
                 Chat on WhatsApp

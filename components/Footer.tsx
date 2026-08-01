@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import businessConfig from '@/config/business.json';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,22 +28,28 @@ export default function Footer() {
     {
       title: 'Contact Info',
       links: [
-        { label: 'Phone: +91-9999999999', href: 'tel:+919999999999' },
-        { label: 'Email: hello@nursery.com', href: 'mailto:hello@nursery.com' },
+        { label: `Phone: ${businessConfig.contact.phone}`, href: `tel:${businessConfig.contact.phone}` },
+        { label: `Email: ${businessConfig.contact.email}`, href: `mailto:${businessConfig.contact.email}` },
         {
-          label: 'WhatsApp: +91-9999999999',
-          href: 'https://wa.me/919999999999',
+          label: `WhatsApp: ${businessConfig.contact.whatsapp}`,
+          href: `https://wa.me/${businessConfig.contact.whatsapp.replace('+', '')}`,
         },
       ],
     },
   ];
 
   const socialLinks = [
-    { icon: '📘', label: 'Facebook', href: '#' },
-    { icon: '📷', label: 'Instagram', href: '#' },
-    { icon: '🐦', label: 'Twitter', href: '#' },
-    { icon: '▶️', label: 'YouTube', href: '#' },
-  ];
+    {
+      icon: '📘',
+      label: 'Facebook',
+      href: businessConfig.socialMedia.facebook || '#',
+    },
+    {
+      icon: '📷',
+      label: 'Instagram',
+      href: businessConfig.socialMedia.instagram || '#',
+    },
+  ].filter(link => link.href !== '#');
 
   return (
     <footer className="bg-charcoal text-white mt-20">
@@ -59,10 +66,12 @@ export default function Footer() {
               <div className="w-8 h-8 bg-primary-500 rounded flex items-center justify-center">
                 <span className="text-lg">🌿</span>
               </div>
-              <span className="font-display font-bold text-xl">Nursery</span>
+              <span className="font-display font-bold text-xl">
+                {businessConfig.businessName}
+              </span>
             </div>
             <p className="text-gray-400 text-sm">
-              Your premium destination for healthy plants and garden supplies.
+              {businessConfig.businessDescription}
             </p>
           </motion.div>
 

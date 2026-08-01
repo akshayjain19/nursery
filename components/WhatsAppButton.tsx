@@ -4,6 +4,7 @@ import { Product } from '@/types';
 import { getWhatsAppLink } from '@/lib/utils';
 import Link from 'next/link';
 import Button from './Button';
+import businessConfig from '@/config/business.json';
 
 interface WhatsAppButtonProps {
   product: Product;
@@ -15,7 +16,7 @@ interface WhatsAppButtonProps {
 
 export default function WhatsAppButton({
   product,
-  phoneNumber = '+919999999999',
+  phoneNumber = businessConfig.contact.whatsapp,
   variant = 'primary',
   size = 'md',
   className,

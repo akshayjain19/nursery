@@ -1,0 +1,258 @@
+{
+  "plantDatabase": [
+    {
+      "commonName": "Snake Plant",
+      "scientificName": "Sansevieria trifasciata",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Low",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [300, 600]
+    },
+    {
+      "commonName": "Money Plant",
+      "scientificName": "Epipremnum aureum",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [200, 500]
+    },
+    {
+      "commonName": "Pothos",
+      "scientificName": "Epipremnum aureum",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [250, 500]
+    },
+    {
+      "commonName": "Peace Lily",
+      "scientificName": "Spathiphyllum wallisii",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [400, 800]
+    },
+    {
+      "commonName": "Spider Plant",
+      "scientificName": "Chlorophytum comosum",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Bright",
+      "airPurifying": true,
+      "priceRange": [250, 500]
+    },
+    {
+      "commonName": "Lucky Bamboo",
+      "scientificName": "Dracaena sanderiana",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Low",
+      "sunlight": "Low to Bright",
+      "airPurifying": false,
+      "priceRange": [300, 700]
+    },
+    {
+      "commonName": "Rubber Plant",
+      "scientificName": "Ficus elastica",
+      "category": "Indoor Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "Medium",
+      "sunlight": "Bright",
+      "airPurifying": true,
+      "priceRange": [500, 1500]
+    },
+    {
+      "commonName": "Monstera Deliciosa",
+      "scientificName": "Monstera deliciosa",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Bright",
+      "airPurifying": true,
+      "priceRange": [800, 2000]
+    },
+    {
+      "commonName": "Philodendron",
+      "scientificName": "Philodendron hederaceum",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [300, 800]
+    },
+    {
+      "commonName": "Aloe Vera",
+      "scientificName": "Aloe barbadensis",
+      "category": "Succulents",
+      "careLevel": "Easy",
+      "wateringFrequency": "Low",
+      "sunlight": "Bright",
+      "airPurifying": true,
+      "priceRange": [150, 400]
+    },
+    {
+      "commonName": "Jade Plant",
+      "scientificName": "Crassula ovata",
+      "category": "Succulents",
+      "careLevel": "Easy",
+      "wateringFrequency": "Low",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "priceRange": [200, 600]
+    },
+    {
+      "commonName": "Echeveria",
+      "scientificName": "Echeveria elegans",
+      "category": "Succulents",
+      "careLevel": "Easy",
+      "wateringFrequency": "Low",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "priceRange": [100, 300]
+    },
+    {
+      "commonName": "Bougainvillea",
+      "scientificName": "Bougainvillea spectabilis",
+      "category": "Outdoor Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "Low",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "priceRange": [400, 1200]
+    },
+    {
+      "commonName": "Jasmine",
+      "scientificName": "Jasminum sambac",
+      "category": "Outdoor Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "Medium",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "priceRange": [300, 800]
+    },
+    {
+      "commonName": "Rose Plant",
+      "scientificName": "Rosa spp.",
+      "category": "Seasonal Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "High",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "priceRange": [400, 1000]
+    },
+    {
+      "commonName": "Hibiscus",
+      "scientificName": "Hibiscus rosa-sinensis",
+      "category": "Seasonal Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "Medium",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "priceRange": [300, 900]
+    },
+    {
+      "commonName": "Fern",
+      "scientificName": "Pteridium aquilinum",
+      "category": "Indoor Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "High",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [250, 600]
+    },
+    {
+      "commonName": "Syngonium",
+      "scientificName": "Syngonium podophyllum",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [300, 700]
+    },
+    {
+      "commonName": "Neem Tree",
+      "scientificName": "Azadirachta indica",
+      "category": "Outdoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Low",
+      "sunlight": "Bright",
+      "airPurifying": true,
+      "medicinal": true,
+      "priceRange": [800, 2000]
+    },
+    {
+      "commonName": "Tulsi/Holy Basil",
+      "scientificName": "Ocimum sanctum",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Bright",
+      "airPurifying": true,
+      "medicinal": true,
+      "priceRange": [150, 400]
+    },
+    {
+      "commonName": "Creeping Fig",
+      "scientificName": "Ficus pumila",
+      "category": "Creepers & Hanging Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "Medium",
+      "sunlight": "Low to Bright",
+      "airPurifying": false,
+      "priceRange": [200, 500]
+    },
+    {
+      "commonName": "Heartleaf Philodendron",
+      "scientificName": "Philodendron hederaceum",
+      "category": "Creepers & Hanging Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Low to Bright",
+      "airPurifying": true,
+      "priceRange": [250, 600]
+    },
+    {
+      "commonName": "String of Pearls",
+      "scientificName": "Senecio rowleyanus",
+      "category": "Creepers & Hanging Plants",
+      "careLevel": "Medium",
+      "wateringFrequency": "Low",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "priceRange": [300, 700]
+    },
+    {
+      "commonName": "Lemongrass",
+      "scientificName": "Cymbopogon citratus",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "Medium",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "medicinal": true,
+      "priceRange": [150, 350]
+    },
+    {
+      "commonName": "Mint",
+      "scientificName": "Mentha piperita",
+      "category": "Indoor Plants",
+      "careLevel": "Easy",
+      "wateringFrequency": "High",
+      "sunlight": "Bright",
+      "airPurifying": false,
+      "medicinal": true,
+      "priceRange": [100, 300]
+    }
+  ]
+}
