@@ -158,7 +158,7 @@ export default function Home() {
           </p>
           <button
             onClick={() => {
-              window.open('https://wa.me/919999999999', '_blank');
+              window.open(`https://wa.me/${businessConfig.contact.whatsapp.replace(/\D/g, '')}`, '_blank');
             }}
             className="inline-block px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
           >

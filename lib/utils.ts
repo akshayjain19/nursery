@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function getWhatsAppLink(product: Product, phoneNumber = '+919999999999'): string {
+export function getWhatsAppLink(product: Product, phoneNumber = '+918305449559'): string {
   const message = `Hi, I am interested in:\n\n${product.name}\n\nPrice: ₹${product.price}`;
   const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
