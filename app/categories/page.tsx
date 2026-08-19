@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useMemo, useState } from 'react';
+import { Suspense, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -28,22 +28,14 @@ function CategoriesContent() {
       : 'All';
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [filters, setFilters] = useState<Partial<FilterState>>({
-    category: categoryFromQuery,
-    sortBy: 'relevance',
-  });
+  const [sortBy, setSortBy] = useState<FilterState['sortBy']>('relevance');
 
   const priceRange = getPriceRange(products);
   const [selectedPriceRange, setSelectedPriceRange] = useState<[number, number]>(
     priceRange
   );
 
-  useEffect(() => {
-    setFilters((prev) => ({ ...prev, category: categoryFromQuery }));
-  }, [categoryFromQuery]);
-
   const updateCategory = (category: string) => {
-    setFilters((prev) => ({ ...prev, category }));
     const params = new URLSearchParams(searchParams.toString());
     if (!category || category === 'All') {
       params.delete('category');
@@ -61,12 +53,12 @@ function CategoriesContent() {
 
   const filteredProducts = useMemo(() => {
     const filterState: Partial<FilterState> = {
-      ...filters,
-      category: filters.category === 'All' ? undefined : filters.category,
+      category: categoryFromQuery === 'All' ? undefined : categoryFromQuery,
+      sortBy,
       priceRange: selectedPriceRange,
     };
     return filterProducts(searchedProducts, filterState);
-  }, [searchedProducts, filters, selectedPriceRange]);
+  }, [searchedProducts, categoryFromQuery, sortBy, selectedPriceRange]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -119,7 +111,7 @@ function CategoriesContent() {
                     <button
                       onClick={() => updateCategory('All')}
                       className={`block w-full text-left px-3 py-2 rounded transition-colors ${
-                        filters.category === 'All'
+                        categoryFromQuery === 'All'
                           ? 'bg-primary-500 text-white font-medium'
                           : 'text-charcoal hover:bg-primary-50'
                       }`}
@@ -131,7 +123,7 @@ function CategoriesContent() {
                         key={cat.id}
                         onClick={() => updateCategory(cat.name)}
                         className={`block w-full text-left px-3 py-2 rounded transition-colors ${
-                          filters.category === cat.name
+                          categoryFromQuery === cat.name
                             ? 'bg-primary-500 text-white font-medium'
                             : 'text-charcoal hover:bg-primary-50'
                         }`}
@@ -184,12 +176,9 @@ function CategoriesContent() {
                     Sort By
                   </h3>
                   <select
-                    value={filters.sortBy || 'relevance'}
+                    value={sortBy}
                     onChange={(e) =>
-                      setFilters({
-                        ...filters,
-                        sortBy: e.target.value as FilterState['sortBy'],
-                      })
+                      setSortBy(e.target.value as FilterState['sortBy'])
                     }
                     className="w-full px-3 py-2 border border-primary-200 rounded focus:outline-none focus:border-primary-500"
                   >
@@ -218,8 +207,8 @@ function CategoriesContent() {
                     onClick={() => {
                       setSearchQuery('');
                       setSelectedPriceRange(priceRange);
+                      setSortBy('relevance');
                       updateCategory('All');
-                      setFilters({ category: 'All', sortBy: 'relevance' });
                     }}
                   >
                     Clear Filters
