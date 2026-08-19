@@ -1,14 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../tailwind.config.ts';
 
-* {
-  font-family: 'Inter', sans-serif;
+@theme {
+  --color-primary-50: #f0f7f4;
+  --color-primary-100: #dceee7;
+  --color-primary-200: #b8ddd0;
+  --color-primary-300: #87c4b3;
+  --color-primary-400: #5aab96;
+  --color-primary-500: #3a8e7a;
+  --color-primary-600: #2d7063;
+  --color-primary-700: #245951;
+  --color-primary-800: #1f4842;
+  --color-primary-900: #1b3a35;
+
+  --color-secondary-50: #f4f8f6;
+  --color-secondary-100: #e5f0eb;
+  --color-secondary-200: #c4ddd5;
+  --color-secondary-300: #9bc7b9;
+  --color-secondary-400: #6eab9d;
+  --color-secondary-500: #4d9681;
+  --color-secondary-600: #3d7a69;
+  --color-secondary-700: #326254;
+  --color-secondary-800: #2a4d46;
+  --color-secondary-900: #213d39;
+
+  --color-accent-50: #fef6f3;
+  --color-accent-100: #fdeae3;
+  --color-accent-200: #f8d0bd;
+  --color-accent-300: #f2a887;
+  --color-accent-400: #ec8552;
+  --color-accent-500: #e67c3c;
+  --color-accent-600: #d45a1a;
+  --color-accent-700: #b84515;
+  --color-accent-800: #94371a;
+  --color-accent-900: #7a2f17;
+
+  --color-neutral-50: #faf9f7;
+  --color-neutral-100: #f4f2f0;
+  --color-neutral-200: #e8e5e1;
+  --color-neutral-300: #d9d4ce;
+  --color-neutral-400: #c5bbb3;
+  --color-neutral-500: #a89f96;
+  --color-neutral-600: #8b8278;
+  --color-neutral-700: #6b6259;
+  --color-neutral-800: #3e3a36;
+  --color-neutral-900: #2d2a27;
+
+  --color-warmwhite: #faf9f7;
+  --color-charcoal: #2d2a27;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'DM Sans', sans-serif;
+
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-soft-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-soft-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'DM Sans', sans-serif;
+* {
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
   font-weight: 600;
 }
 
