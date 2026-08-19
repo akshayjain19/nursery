@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Button from './Button';
 import Link from 'next/link';
 import businessConfig from '@/config/business.json';
+import { getWhatsAppChatLink } from '@/lib/utils';
 
 export default function Hero() {
   return (
@@ -49,7 +50,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              Welcome to Our Nursery
+              Welcome to {businessConfig.businessName}
             </motion.p>
 
             <motion.h1
@@ -85,8 +86,7 @@ export default function Hero() {
                 variant="outline"
                 size="lg"
                 onClick={() => {
-                  const phoneNumber = businessConfig.contact.whatsapp.replace('+', '');
-                  window.open(`https://wa.me/${phoneNumber}`, '_blank');
+                  window.open(getWhatsAppChatLink(), '_blank');
                 }}
               >
                 Chat on WhatsApp

@@ -1,15 +1,32 @@
 import { Product, FilterState } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import businessConfig from '@/config/business.json';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function getWhatsAppLink(product: Product, phoneNumber = '+919999999999'): string {
+/** Digits only, e.g. "+91 8305449559" -> "918305449559" */
+export function toWhatsAppNumber(
+  phoneNumber: string = businessConfig.contact.whatsapp
+): string {
+  return phoneNumber.replace(/\D/g, '');
+}
+
+export function getWhatsAppChatLink(
+  phoneNumber: string = businessConfig.contact.whatsapp
+): string {
+  return `https://wa.me/${toWhatsAppNumber(phoneNumber)}`;
+}
+
+export function getWhatsAppLink(
+  product: Product,
+  phoneNumber: string = businessConfig.contact.whatsapp
+): string {
   const message = `Hi, I am interested in:\n\n${product.name}\n\nPrice: ₹${product.price}`;
   const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  return `${getWhatsAppChatLink(phoneNumber)}?text=${encodedMessage}`;
 }
 
 export function formatPrice(price: number): string {

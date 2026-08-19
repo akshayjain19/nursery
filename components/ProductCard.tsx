@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Product } from '@/types';
 import { formatPrice } from '@/lib/utils';
 import Image from 'next/image';
@@ -15,6 +16,8 @@ export default function ProductCard({
   product,
   onImageClick,
 }: ProductCardProps) {
+  const [imageFailed, setImageFailed] = useState(false);
+
   return (
     <motion.div
       className="bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-soft-md transition-shadow duration-300"
@@ -22,16 +25,23 @@ export default function ProductCard({
       transition={{ duration: 0.2 }}
     >
       <div
-        className="relative w-full h-48 bg-gray-100 cursor-pointer group overflow-hidden rounded-t-xl"
+        className="relative w-full h-48 bg-primary-50 cursor-pointer group overflow-hidden rounded-t-xl"
         onClick={onImageClick}
       >
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {imageFailed ? (
+          <div className="flex h-full w-full items-center justify-center text-6xl">
+            🌿
+          </div>
+        ) : (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={() => setImageFailed(true)}
+          />
+        )}
       </div>
 
       <div className="p-4">

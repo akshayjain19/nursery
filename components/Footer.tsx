@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import businessConfig from '@/config/business.json';
+import { getWhatsAppChatLink } from '@/lib/utils';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,8 +14,8 @@ export default function Footer() {
       links: [
         { label: 'Home', href: '/' },
         { label: 'Categories', href: '/categories' },
-        { label: 'About Us', href: '#about' },
-        { label: 'Contact', href: '#contact' },
+        { label: 'About Us', href: '/about' },
+        { label: 'Contact', href: '/contact' },
       ],
     },
     {
@@ -22,7 +23,9 @@ export default function Footer() {
       links: [
         { label: 'Privacy Policy', href: '/privacy' },
         { label: 'Terms & Conditions', href: '/terms' },
-        { label: 'FAQ', href: '#faq' },
+        { label: 'FAQ', href: '/faq' },
+        { label: 'Shipping', href: '/shipping' },
+        { label: 'Returns', href: '/returns' },
       ],
     },
     {
@@ -32,7 +35,7 @@ export default function Footer() {
         { label: `Email: ${businessConfig.contact.email}`, href: `mailto:${businessConfig.contact.email}` },
         {
           label: `WhatsApp: ${businessConfig.contact.whatsapp}`,
-          href: `https://wa.me/${businessConfig.contact.whatsapp.replace('+', '')}`,
+          href: getWhatsAppChatLink(),
         },
       ],
     },
@@ -130,7 +133,7 @@ export default function Footer() {
           </div>
 
           <p className="text-gray-400 text-sm">
-            © {currentYear} Nursery. All rights reserved.
+            © {currentYear} {businessConfig.businessName}. All rights reserved.
           </p>
         </motion.div>
       </div>

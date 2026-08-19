@@ -1,21 +1,35 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import Button from '@/components/Button';
 import products from '@/data/products.json';
-import { CATEGORIES, FilterState } from '@/types';
+import { FilterState } from '@/types';
 import { filterProducts, getPriceRange } from '@/lib/utils';
 import { searchProducts } from '@/lib/search';
 import businessConfig from '@/config/business.json';
 import { motion } from 'framer-motion';
 
-export default function CategoriesPage() {
+const VALID_CATEGORIES = new Set(
+  businessConfig.categories.map((cat) => cat.name)
+);
+
+function CategoriesContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const categoryParam = searchParams.get('category');
+  const categoryFromQuery =
+    categoryParam && VALID_CATEGORIES.has(categoryParam)
+      ? categoryParam
+      : 'All';
+
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState<Partial<FilterState>>({
-    category: 'All',
+    category: categoryFromQuery,
     sortBy: 'relevance',
   });
 
@@ -24,7 +38,22 @@ export default function CategoriesPage() {
     priceRange
   );
 
-  // Search first, then filter
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, category: categoryFromQuery }));
+  }, [categoryFromQuery]);
+
+  const updateCategory = (category: string) => {
+    setFilters((prev) => ({ ...prev, category }));
+    const params = new URLSearchParams(searchParams.toString());
+    if (!category || category === 'All') {
+      params.delete('category');
+    } else {
+      params.set('category', category);
+    }
+    const query = params.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  };
+
   const searchedProducts = useMemo(
     () => searchProducts(products, searchQuery),
     [searchQuery]
@@ -37,7 +66,7 @@ export default function CategoriesPage() {
       priceRange: selectedPriceRange,
     };
     return filterProducts(searchedProducts, filterState);
-  }, [searchQuery, filters, selectedPriceRange]);
+  }, [searchedProducts, filters, selectedPriceRange]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -45,7 +74,6 @@ export default function CategoriesPage() {
 
       <main className="flex-1 bg-warmwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Header */}
           <motion.div
             className="mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +88,6 @@ export default function CategoriesPage() {
             </p>
           </motion.div>
 
-          {/* Search Bar */}
           <motion.div
             className="mb-8"
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +104,6 @@ export default function CategoriesPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {/* Filters Sidebar */}
             <motion.div
               className="md:col-span-1"
               initial={{ opacity: 0, x: -20 }}
@@ -85,16 +111,13 @@ export default function CategoriesPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="bg-white rounded-lg p-6 shadow-soft sticky top-20">
-                {/* Category Filter */}
                 <div className="mb-8">
                   <h3 className="font-display font-semibold text-charcoal mb-4">
                     Category
                   </h3>
                   <div className="space-y-2">
                     <button
-                      onClick={() =>
-                        setFilters({ ...filters, category: 'All' })
-                      }
+                      onClick={() => updateCategory('All')}
                       className={`block w-full text-left px-3 py-2 rounded transition-colors ${
                         filters.category === 'All'
                           ? 'bg-primary-500 text-white font-medium'
@@ -106,9 +129,7 @@ export default function CategoriesPage() {
                     {businessConfig.categories.map((cat) => (
                       <button
                         key={cat.id}
-                        onClick={() =>
-                          setFilters({ ...filters, category: cat.name })
-                        }
+                        onClick={() => updateCategory(cat.name)}
                         className={`block w-full text-left px-3 py-2 rounded transition-colors ${
                           filters.category === cat.name
                             ? 'bg-primary-500 text-white font-medium'
@@ -121,7 +142,6 @@ export default function CategoriesPage() {
                   </div>
                 </div>
 
-                {/* Price Filter */}
                 <div className="mb-8">
                   <h3 className="font-display font-semibold text-charcoal mb-4">
                     Price Range
@@ -159,7 +179,6 @@ export default function CategoriesPage() {
                   </div>
                 </div>
 
-                {/* Sort */}
                 <div>
                   <h3 className="font-display font-semibold text-charcoal mb-4">
                     Sort By
@@ -169,7 +188,7 @@ export default function CategoriesPage() {
                     onChange={(e) =>
                       setFilters({
                         ...filters,
-                        sortBy: e.target.value as any,
+                        sortBy: e.target.value as FilterState['sortBy'],
                       })
                     }
                     className="w-full px-3 py-2 border border-primary-200 rounded focus:outline-none focus:border-primary-500"
@@ -183,7 +202,6 @@ export default function CategoriesPage() {
               </div>
             </motion.div>
 
-            {/* Products Grid */}
             <motion.div
               className="md:col-span-3"
               initial={{ opacity: 0, y: 20 }}
@@ -199,8 +217,9 @@ export default function CategoriesPage() {
                     variant="primary"
                     onClick={() => {
                       setSearchQuery('');
-                      setFilters({ category: 'All', sortBy: 'relevance' });
                       setSelectedPriceRange(priceRange);
+                      updateCategory('All');
+                      setFilters({ category: 'All', sortBy: 'relevance' });
                     }}
                   >
                     Clear Filters
@@ -236,5 +255,19 @@ export default function CategoriesPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function CategoriesPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-warmwhite text-charcoal">
+          Loading products...
+        </div>
+      }
+    >
+      <CategoriesContent />
+    </Suspense>
   );
 }

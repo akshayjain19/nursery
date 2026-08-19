@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import businessConfig from '@/config/business.json';
+import { getWhatsAppChatLink } from '@/lib/utils';
 
 export default function Navbar() {
   return (
@@ -21,7 +22,7 @@ export default function Navbar() {
                 <span className="text-white font-bold text-lg">🌿</span>
               </div>
               <span className="font-display font-bold text-xl text-charcoal hidden sm:inline">
-                Nursery
+                {businessConfig.businessName}
               </span>
             </Link>
           </motion.div>
@@ -46,13 +47,13 @@ export default function Navbar() {
               Categories
             </Link>
             <Link
-              href="#about"
+              href="/about"
               className="text-charcoal hover:text-primary-500 font-medium transition-colors"
             >
               About
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               className="text-charcoal hover:text-primary-500 font-medium transition-colors"
             >
               Contact
@@ -69,8 +70,7 @@ export default function Navbar() {
               variant="primary"
               size="sm"
               onClick={() => {
-                const phoneNumber = businessConfig.contact.whatsapp.replace('+', '');
-                window.open(`https://wa.me/${phoneNumber}`, '_blank');
+                window.open(getWhatsAppChatLink(), '_blank');
               }}
               className="hidden sm:inline-block"
             >

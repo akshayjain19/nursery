@@ -9,6 +9,7 @@ import { CATEGORIES } from '@/types';
 import products from '@/data/products.json';
 import businessConfig from '@/config/business.json';
 import { motion } from 'framer-motion';
+import { getWhatsAppChatLink } from '@/lib/utils';
 
 export default function Home() {
   // Get featured/best-selling products
@@ -158,7 +159,7 @@ export default function Home() {
           </p>
           <button
             onClick={() => {
-              window.open('https://wa.me/919999999999', '_blank');
+              window.open(getWhatsAppChatLink(), '_blank');
             }}
             className="inline-block px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors text-lg"
           >
