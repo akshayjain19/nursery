@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import businessConfig from '@/config/business.json';
+import Logo from './Logo';
 import { getWhatsAppChatLink } from '@/lib/utils';
 
 const navLinks = [
@@ -26,14 +26,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-6">
-          <Link href="/" className="shrink-0">
-            <p className="font-serif text-2xl leading-none text-charcoal md:text-3xl">
-              {businessConfig.businessName.toLowerCase().replace(' ', '')}.
-            </p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-stone">
-              plants for life
-            </p>
-          </Link>
+          <Logo variant="header" />
 
           <nav className="hidden items-center gap-6 xl:gap-8 lg:flex">
             {navLinks.map((link) => (

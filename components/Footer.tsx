@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import Logo from './Logo';
 import businessConfig from '@/config/business.json';
 import { getWhatsAppChatLink } from '@/lib/utils';
 
@@ -13,12 +14,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <p className="font-serif text-2xl text-charcoal">
-              {businessConfig.businessName.toLowerCase().replace(' ', '')}.
-            </p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.25em] text-stone">
-              plants for life
-            </p>
+            <Logo variant="footer" />
             <div className="mt-6 flex gap-3">
               {businessConfig.socialMedia.instagram && (
                 <SocialLink href={businessConfig.socialMedia.instagram} label="Instagram">

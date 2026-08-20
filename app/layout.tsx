@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import businessConfig from '@/config/business.json';
 
 export const metadata: Metadata = {
   title: 'Indore Nursery - Premium Plants & Garden Supplies',
   description:
     'Discover premium plants and garden essentials in Indore. Shop healthy indoor, outdoor, and exotic plants with expert guidance.',
   icons: {
-    icon: '/favicon.ico',
+    icon: businessConfig.logoIcon,
+    apple: businessConfig.logoIcon,
   },
   openGraph: {
     title: 'Indore Nursery - Premium Plants & Garden Supplies',
