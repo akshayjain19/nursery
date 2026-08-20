@@ -8,7 +8,6 @@ import CategoryCard from '@/components/CategoryCard';
 import ProductCard from '@/components/ProductCard';
 import PromoBanner from '@/components/PromoBanner';
 import InstagramFeed from '@/components/InstagramFeed';
-import Newsletter from '@/components/Newsletter';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Button from '@/components/Button';
 import products from '@/data/products.json';
@@ -85,7 +84,6 @@ export default function Home() {
 
       <PromoBanner />
       <InstagramFeed />
-      <Newsletter />
       <Footer />
     </div>
   );

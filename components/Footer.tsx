@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import type { ReactNode } from 'react';
 import Logo from './Logo';
 import businessConfig from '@/config/business.json';
-import { getWhatsAppChatLink } from '@/lib/utils';
+import { SocialIcon } from './ui/SocialIcons';
+import WhatsAppChatButton from './WhatsAppChatButton';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,14 +17,18 @@ export default function Footer() {
             <Logo variant="footer" />
             <div className="mt-6 flex gap-3">
               {businessConfig.socialMedia.instagram && (
-                <SocialLink href={businessConfig.socialMedia.instagram} label="Instagram">
-                  IG
-                </SocialLink>
+                <SocialLink
+                  href={businessConfig.socialMedia.instagram}
+                  label="Instagram"
+                  platform="instagram"
+                />
               )}
               {businessConfig.socialMedia.facebook && (
-                <SocialLink href={businessConfig.socialMedia.facebook} label="Facebook">
-                  FB
-                </SocialLink>
+                <SocialLink
+                  href={businessConfig.socialMedia.facebook}
+                  label="Facebook"
+                  platform="facebook"
+                />
               )}
             </div>
           </div>
@@ -34,7 +38,7 @@ export default function Footer() {
             links={[
               { label: 'About Us', href: '/about' },
               { label: 'Shop', href: '/categories' },
-              { label: 'Plant Care', href: '/faq' },
+              { label: 'Plant Care', href: '/plant-care' },
               { label: 'Contact', href: '/contact' },
             ]}
           />
@@ -60,14 +64,11 @@ export default function Footer() {
                 label: businessConfig.contact.email,
                 href: `mailto:${businessConfig.contact.email}`,
               },
-              {
-                label: 'Chat on WhatsApp',
-                href: getWhatsAppChatLink(),
-              },
             ]}
           />
 
-          <div className="flex items-start justify-start lg:justify-end">
+          <div className="flex flex-col items-start justify-start gap-4 lg:items-end">
+            <WhatsAppChatButton variant="outline" size="sm" />
             <p className="font-serif text-xl italic text-olive-600">
               thank you for supporting green living ♡
             </p>
@@ -117,11 +118,11 @@ function FooterColumn({
 function SocialLink({
   href,
   label,
-  children,
+  platform,
 }: {
   href: string;
   label: string;
-  children: ReactNode;
+  platform: 'instagram' | 'facebook';
 }) {
   return (
     <Link
@@ -129,9 +130,9 @@ function SocialLink({
       aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-olive-600 text-[10px] font-bold text-olive-600 transition-colors hover:bg-olive-600 hover:text-white"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-olive-600 text-olive-600 transition-colors hover:bg-olive-600 hover:text-white"
     >
-      {children}
+      <SocialIcon platform={platform} />
     </Link>
   );
 }

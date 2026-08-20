@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import businessConfig from '@/config/business.json';
+import { ToastProvider } from '@/components/ToastProvider';
 
 export const metadata: Metadata = {
   title: 'Indore Nursery - Premium Plants & Garden Supplies',
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="min-h-full flex flex-col antialiased">
-        {children}
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
 import { getWhatsAppChatLink } from '@/lib/utils';
+import { useOpenWhatsApp } from '@/lib/use-open-whatsapp';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -15,12 +16,13 @@ const navLinks = [
     href: '/categories?category=Garden Accessories',
   },
   { label: 'About Us', href: '/about' },
-  { label: 'Plant Care', href: '/faq' },
+  { label: 'Plant Care', href: '/plant-care' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const openWhatsApp = useOpenWhatsApp();
 
   return (
     <header className="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur-md">
@@ -50,19 +52,17 @@ export default function Navbar() {
             </Link>
             <button
               type="button"
-              onClick={() => window.open(getWhatsAppChatLink(), '_blank')}
+              onClick={() =>
+                openWhatsApp(
+                  getWhatsAppChatLink(),
+                  'Opening WhatsApp to chat with Indore Nursery. Ask us about plants, pricing, delivery, or care tips.'
+                )
+              }
               className="hidden text-charcoal transition-colors hover:text-olive-600 sm:block"
               aria-label="Chat on WhatsApp"
             >
               <ChatIcon />
             </button>
-            <Link
-              href="/categories"
-              className="relative text-charcoal transition-colors hover:text-olive-600"
-              aria-label="Browse catalog"
-            >
-              <BagIcon />
-            </Link>
             <button
               type="button"
               className="text-charcoal lg:hidden"
@@ -115,15 +115,6 @@ function ChatIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M21 11.5a8.4 8.4 0 0 1-1.1 4.2 8.5 8.5 0 0 1-7.4 4.3 8.4 8.4 0 0 1-4.2-1.1L3 21l1.1-5.3A8.4 8.4 0 0 1 3 11.5 8.5 8.5 0 0 1 11.5 3 8.5 8.5 0 0 1 21 11.5z" />
-    </svg>
-  );
-}
-
-function BagIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M6 7h12l-1 14H7L6 7z" />
-      <path d="M9 7V5a3 3 0 0 1 6 0v2" />
     </svg>
   );
 }

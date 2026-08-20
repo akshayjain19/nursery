@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Product } from '@/types';
 import { formatPrice } from '@/lib/utils';
 import Image from 'next/image';
@@ -32,35 +33,42 @@ export default function ProductCard({
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="relative aspect-square overflow-hidden rounded-sm bg-cream-dark">
-        {imageFailed ? (
-          <div className="flex h-full w-full items-center justify-center text-5xl">
-            🌿
-          </div>
-        ) : (
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 50vw, 16vw"
-            onError={() => setImageFailed(true)}
-          />
-        )}
-        <button
-          type="button"
-          onClick={() => setLiked((value) => !value)}
-          className="absolute right-3 top-3 rounded-full bg-white/90 p-2 text-charcoal transition-colors hover:text-olive-600"
-          aria-label="Add to wishlist"
-        >
-          <HeartIcon filled={liked} />
-        </button>
-      </div>
+      <Link href={`/products/${product.id}`} className="block">
+        <div className="relative aspect-square overflow-hidden rounded-sm bg-cream-dark">
+          {imageFailed ? (
+            <div className="flex h-full w-full items-center justify-center text-5xl">
+              🌿
+            </div>
+          ) : (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 50vw, 16vw"
+              onError={() => setImageFailed(true)}
+            />
+          )}
+          <button
+            type="button"
+            onClick={(event) => {
+              event.preventDefault();
+              setLiked((value) => !value);
+            }}
+            className="absolute right-3 top-3 rounded-full bg-white/90 p-2 text-charcoal transition-colors hover:text-olive-600"
+            aria-label="Add to wishlist"
+          >
+            <HeartIcon filled={liked} />
+          </button>
+        </div>
+      </Link>
 
       <div className="px-1 py-4 text-center">
-        <h3 className="font-serif text-base text-charcoal md:text-lg">
-          {product.name}
-        </h3>
+        <Link href={`/products/${product.id}`}>
+          <h3 className="font-serif text-base text-charcoal transition-colors hover:text-olive-600 md:text-lg">
+            {product.name}
+          </h3>
+        </Link>
         <p className="mt-2 text-sm font-semibold text-charcoal">
           {formatPrice(product.price)}
         </p>

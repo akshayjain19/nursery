@@ -1,9 +1,9 @@
 'use client';
 
 import ContentPage from '@/components/ContentPage';
-import Button from '@/components/Button';
+import LocationMap from '@/components/LocationMap';
+import WhatsAppChatButton from '@/components/WhatsAppChatButton';
 import businessConfig from '@/config/business.json';
-import { getWhatsAppChatLink } from '@/lib/utils';
 
 const fullAddress = `${businessConfig.location.address}, ${businessConfig.location.city}, ${businessConfig.location.state} ${businessConfig.location.zipCode}`;
 
@@ -12,8 +12,10 @@ export default function ContactPage() {
     <ContentPage
       eyebrow="Get in touch"
       title="Contact Us"
-      description={`We are happy to help with plant selection, care guidance, and orders.`}
+      description="We are happy to help with plant selection, care guidance, and orders."
     >
+      <LocationMap className="mb-8" />
+
       <div className="grid gap-6 md:grid-cols-2">
         <div className="border border-cream-dark bg-white p-6">
           <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
@@ -58,13 +60,7 @@ export default function ContactPage() {
       </div>
 
       <div className="mt-8">
-        <Button
-          variant="primary"
-          size="lg"
-          onClick={() => window.open(getWhatsAppChatLink(), '_blank')}
-        >
-          Chat on WhatsApp →
-        </Button>
+        <WhatsAppChatButton variant="primary" size="lg" />
       </div>
     </ContentPage>
   );

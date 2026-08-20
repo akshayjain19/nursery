@@ -31,9 +31,7 @@ function CategoriesContent() {
   const [sortBy, setSortBy] = useState<FilterState['sortBy']>('relevance');
 
   const priceRange = getPriceRange(products);
-  const [selectedPriceRange, setSelectedPriceRange] = useState<[number, number]>(
-    priceRange
-  );
+  const [maxPrice, setMaxPrice] = useState(priceRange[1]);
 
   const updateCategory = (category: string) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -55,10 +53,10 @@ function CategoriesContent() {
     const filterState: Partial<FilterState> = {
       category: categoryFromQuery === 'All' ? undefined : categoryFromQuery,
       sortBy,
-      priceRange: selectedPriceRange,
+      priceRange: [priceRange[0], maxPrice],
     };
     return filterProducts(searchedProducts, filterState);
-  }, [searchedProducts, categoryFromQuery, sortBy, selectedPriceRange]);
+  }, [searchedProducts, categoryFromQuery, sortBy, maxPrice, priceRange]);
 
   return (
     <div className="flex min-h-screen flex-col bg-cream">
@@ -109,37 +107,19 @@ function CategoriesContent() {
 
                 <div className="mb-8">
                   <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
-                    Price Range
+                    Max Price
                   </h3>
                   <div className="space-y-3">
                     <input
                       type="range"
                       min={priceRange[0]}
                       max={priceRange[1]}
-                      value={selectedPriceRange[0]}
-                      onChange={(e) =>
-                        setSelectedPriceRange([
-                          parseInt(e.target.value),
-                          selectedPriceRange[1],
-                        ])
-                      }
-                      className="w-full accent-olive-600"
-                    />
-                    <input
-                      type="range"
-                      min={priceRange[0]}
-                      max={priceRange[1]}
-                      value={selectedPriceRange[1]}
-                      onChange={(e) =>
-                        setSelectedPriceRange([
-                          selectedPriceRange[0],
-                          parseInt(e.target.value),
-                        ])
-                      }
+                      value={maxPrice}
+                      onChange={(e) => setMaxPrice(parseInt(e.target.value))}
                       className="w-full accent-olive-600"
                     />
                     <p className="text-sm text-stone">
-                      ₹{selectedPriceRange[0]} - ₹{selectedPriceRange[1]}
+                      Up to ₹{maxPrice}
                     </p>
                   </div>
                 </div>
@@ -174,7 +154,7 @@ function CategoriesContent() {
                     variant="primary"
                     onClick={() => {
                       setSearchQuery('');
-                      setSelectedPriceRange(priceRange);
+                      setMaxPrice(priceRange[1]);
                       setSortBy('relevance');
                       updateCategory('All');
                     }}

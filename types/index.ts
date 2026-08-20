@@ -5,6 +5,9 @@ export interface Product {
   price: number;
   image: string;
   description?: string;
+  scientificName?: string;
+  careLevel?: string;
+  medicinal?: boolean;
 }
 
 export interface FilterState {

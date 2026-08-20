@@ -39,7 +39,7 @@ const faqs = [
 export default function FaqPage() {
   return (
     <ContentPage
-      eyebrow="Plant care"
+      eyebrow="Help"
       title="Frequently Asked Questions"
       description={`Answers from ${businessConfig.businessName} policies and plant-care guidance.`}
     >
