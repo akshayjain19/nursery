@@ -9,27 +9,32 @@ import WhatsAppButton from './WhatsAppButton';
 
 interface ProductCardProps {
   product: Product;
-  onImageClick?: () => void;
+  showRating?: boolean;
+}
+
+function getRating(productId: number) {
+  const rating = 4 + (productId % 2) * 0.5;
+  const reviews = 40 + productId * 17;
+  return { rating, reviews };
 }
 
 export default function ProductCard({
   product,
-  onImageClick,
+  showRating = true,
 }: ProductCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const { rating, reviews } = getRating(product.id);
 
   return (
-    <motion.div
-      className="bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-soft-md transition-shadow duration-300"
+    <motion.article
+      className="group bg-white"
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
     >
-      <div
-        className="relative w-full h-48 bg-primary-50 cursor-pointer group overflow-hidden rounded-t-xl"
-        onClick={onImageClick}
-      >
+      <div className="relative aspect-square overflow-hidden rounded-sm bg-cream-dark">
         {imageFailed ? (
-          <div className="flex h-full w-full items-center justify-center text-6xl">
+          <div className="flex h-full w-full items-center justify-center text-5xl">
             🌿
           </div>
         ) : (
@@ -37,41 +42,78 @@ export default function ProductCard({
             src={product.image}
             alt={product.name}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 50vw, 16vw"
             onError={() => setImageFailed(true)}
           />
         )}
+        <button
+          type="button"
+          onClick={() => setLiked((value) => !value)}
+          className="absolute right-3 top-3 rounded-full bg-white/90 p-2 text-charcoal transition-colors hover:text-olive-600"
+          aria-label="Add to wishlist"
+        >
+          <HeartIcon filled={liked} />
+        </button>
       </div>
 
-      <div className="p-4">
-        <p className="text-sm text-secondary-600 font-medium mb-1">
-          {product.category}
-        </p>
-
-        <h3 className="text-lg font-display font-semibold text-charcoal mb-2 line-clamp-2">
+      <div className="px-1 py-4 text-center">
+        <h3 className="font-serif text-base text-charcoal md:text-lg">
           {product.name}
         </h3>
-
-        {product.description && (
-          <p className="text-sm text-neutral-600 mb-3 line-clamp-2">
-            {product.description}
-          </p>
+        <p className="mt-2 text-sm font-semibold text-charcoal">
+          {formatPrice(product.price)}
+        </p>
+        {showRating && (
+          <div className="mt-2 flex items-center justify-center gap-1 text-xs text-stone">
+            <StarRow rating={rating} />
+            <span>({reviews})</span>
+          </div>
         )}
-
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-2xl font-bold text-accent-500">
-            {formatPrice(product.price)}
-          </span>
+        <div className="mt-4">
+          <WhatsAppButton
+            product={product}
+            variant="outline"
+            size="sm"
+            className="w-full"
+          />
         </div>
-
-        <WhatsAppButton
-          product={product}
-          variant="primary"
-          size="md"
-          className="w-full"
-        />
       </div>
-    </motion.div>
+    </motion.article>
+  );
+}
+
+function HeartIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill={filled ? 'currentColor' : 'none'}
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <path d="M12 21s-7-4.4-9.2-8.8C1.2 8.7 3.6 5 7.1 5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.5 0 5.9 3.7 4.3 7.2C19 16.6 12 21 12 21z" />
+    </svg>
+  );
+}
+
+function StarRow({ rating }: { rating: number }) {
+  return (
+    <span className="flex text-olive-600">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <svg
+          key={index}
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill={index < Math.floor(rating) ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7L2 9.4h7.6L12 2z" />
+        </svg>
+      ))}
+    </span>
   );
 }

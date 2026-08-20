@@ -34,7 +34,7 @@ export default function WhatsAppButton({
           window.open(whatsappLink, '_blank');
         }}
       >
-        💬 Enquire on WhatsApp
+        💬 Enquire
       </Button>
     </Link>
   );

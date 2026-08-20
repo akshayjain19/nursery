@@ -1,65 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import 'tailwindcss';
 @config '../tailwind.config.ts';
 
 @theme {
-  --color-primary-50: #f0f7f4;
-  --color-primary-100: #dceee7;
-  --color-primary-200: #b8ddd0;
-  --color-primary-300: #87c4b3;
-  --color-primary-400: #5aab96;
-  --color-primary-500: #3a8e7a;
-  --color-primary-600: #2d7063;
-  --color-primary-700: #245951;
-  --color-primary-800: #1f4842;
-  --color-primary-900: #1b3a35;
+  --color-olive-50: #f4f6f0;
+  --color-olive-100: #e6ebe0;
+  --color-olive-200: #cdd7c0;
+  --color-olive-300: #aab996;
+  --color-olive-400: #7f9268;
+  --color-olive-500: #5f7349;
+  --color-olive-600: #4a5d3a;
+  --color-olive-700: #3d4f31;
+  --color-olive-800: #334028;
+  --color-olive-900: #2b3522;
 
-  --color-secondary-50: #f4f8f6;
-  --color-secondary-100: #e5f0eb;
-  --color-secondary-200: #c4ddd5;
-  --color-secondary-300: #9bc7b9;
-  --color-secondary-400: #6eab9d;
-  --color-secondary-500: #4d9681;
-  --color-secondary-600: #3d7a69;
-  --color-secondary-700: #326254;
-  --color-secondary-800: #2a4d46;
-  --color-secondary-900: #213d39;
+  --color-cream: #f7f4ee;
+  --color-cream-dark: #ede8df;
+  --color-stone: #6b6b63;
+  --color-charcoal: #2c2c28;
 
-  --color-accent-50: #fef6f3;
-  --color-accent-100: #fdeae3;
-  --color-accent-200: #f8d0bd;
-  --color-accent-300: #f2a887;
-  --color-accent-400: #ec8552;
-  --color-accent-500: #e67c3c;
-  --color-accent-600: #d45a1a;
-  --color-accent-700: #b84515;
-  --color-accent-800: #94371a;
-  --color-accent-900: #7a2f17;
+  --color-primary-50: #f4f6f0;
+  --color-primary-100: #e6ebe0;
+  --color-primary-200: #cdd7c0;
+  --color-primary-300: #aab996;
+  --color-primary-400: #7f9268;
+  --color-primary-500: #4a5d3a;
+  --color-primary-600: #3d4f31;
+  --color-primary-700: #334028;
+  --color-primary-800: #2b3522;
+  --color-primary-900: #232b1c;
 
-  --color-neutral-50: #faf9f7;
-  --color-neutral-100: #f4f2f0;
-  --color-neutral-200: #e8e5e1;
-  --color-neutral-300: #d9d4ce;
-  --color-neutral-400: #c5bbb3;
-  --color-neutral-500: #a89f96;
-  --color-neutral-600: #8b8278;
-  --color-neutral-700: #6b6259;
-  --color-neutral-800: #3e3a36;
-  --color-neutral-900: #2d2a27;
+  --color-secondary-500: #7f9268;
+  --color-accent-500: #8b7355;
 
-  --color-warmwhite: #faf9f7;
-  --color-charcoal: #2d2a27;
+  --color-neutral-50: #f7f4ee;
+  --color-neutral-100: #ede8df;
+  --color-neutral-600: #6b6b63;
+  --color-neutral-700: #4a4a44;
+  --color-neutral-800: #2c2c28;
 
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'DM Sans', sans-serif;
+  --color-warmwhite: #f7f4ee;
 
-  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-soft-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-soft-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --font-sans: 'Lato', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  --shadow-soft: 0 2px 12px rgba(44, 44, 40, 0.06);
+  --shadow-soft-md: 0 8px 24px rgba(44, 44, 40, 0.08);
+  --shadow-soft-lg: 0 16px 40px rgba(44, 44, 40, 0.1);
 }
 
-* {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -68,61 +67,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
-  font-weight: 600;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  color: #2d2a27;
-  background-color: #faf9f7;
-}
-
-h1 {
-  font-size: 2.25rem;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 3.75rem;
-  }
-}
-
-h2 {
-  font-size: 1.875rem;
-}
-
-@media (min-width: 768px) {
-  h2 {
-    font-size: 2.25rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  h2 {
-    font-size: 3rem;
-  }
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  h3 {
-    font-size: 1.875rem;
-  }
+  font-family: var(--font-serif);
+  font-weight: 500;
 }
 
 a {
-  transition: color 0.2s;
+  transition: color 0.2s ease;
+}
+
+::selection {
+  background-color: #cdd7c0;
+  color: #2c2c28;
 }
