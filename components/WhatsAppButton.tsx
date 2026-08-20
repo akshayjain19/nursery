@@ -2,7 +2,7 @@
 
 import { Product } from '@/types';
 import { getWhatsAppLink } from '@/lib/utils';
-import Link from 'next/link';
+import { useOpenWhatsApp } from '@/lib/use-open-whatsapp';
 import Button from './Button';
 import businessConfig from '@/config/business.json';
 
@@ -21,21 +21,22 @@ export default function WhatsAppButton({
   size = 'md',
   className,
 }: WhatsAppButtonProps) {
+  const openWhatsApp = useOpenWhatsApp();
   const whatsappLink = getWhatsAppLink(product, phoneNumber);
 
   return (
-    <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
-      <Button
-        variant={variant}
-        size={size}
-        className={className}
-        onClick={(e) => {
-          e.preventDefault();
-          window.open(whatsappLink, '_blank');
-        }}
-      >
-        💬 Enquire on WhatsApp
-      </Button>
-    </Link>
+    <Button
+      variant={variant}
+      size={size}
+      className={className}
+      onClick={() =>
+        openWhatsApp(
+          whatsappLink,
+          `Opening WhatsApp to enquire about ${product.name}. Your message will be pre-filled with product details.`
+        )
+      }
+    >
+      💬 Enquire
+    </Button>
   );
 }

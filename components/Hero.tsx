@@ -1,141 +1,66 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Button from './Button';
-import Link from 'next/link';
 import businessConfig from '@/config/business.json';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden pt-20 pb-10 md:pt-0 md:pb-0">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-warmwhite to-secondary-50 -z-10" />
-
-      {/* Decorative blobs */}
-      <motion.div
-        className="absolute top-20 -right-40 w-80 h-80 bg-accent-100 rounded-full filter blur-3xl opacity-30 -z-10"
-        animate={{
-          y: [0, 20, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="absolute bottom-0 -left-40 w-80 h-80 bg-primary-100 rounded-full filter blur-3xl opacity-30 -z-10"
-        animate={{
-          y: [0, -20, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.p
-              className="text-accent-500 font-display font-semibold mb-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              Welcome to Our Nursery
-            </motion.p>
-
-            <motion.h1
-              className="font-display text-5xl md:text-6xl font-bold text-charcoal mb-6 leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            >
-              {businessConfig.tagline}
-            </motion.h1>
-
-            <motion.p
-              className="text-lg text-neutral-700 mb-8 leading-relaxed max-w-md"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              {businessConfig.businessDescription}
-            </motion.p>
-
-            <motion.div
-              className="flex gap-4 flex-wrap"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            >
-              <Link href="/categories">
-                <Button variant="primary" size="lg">
-                  Browse Plants
-                </Button>
-              </Link>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => {
-                  const phoneNumber = businessConfig.contact.whatsapp.replace('+', '');
-                  window.open(`https://wa.me/${phoneNumber}`, '_blank');
-                }}
-              >
-                Chat on WhatsApp
+    <section className="bg-cream">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-20 lg:px-8 lg:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="mb-5 flex items-center gap-2 text-olive-600">
+            <LeafIcon />
+            <span className="text-xs font-semibold uppercase tracking-[0.2em]">
+              Welcome
+            </span>
+          </div>
+          <h1 className="font-serif text-5xl leading-[1.05] text-charcoal md:text-6xl lg:text-7xl">
+            Bring Nature Home
+          </h1>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-stone">
+            {businessConfig.businessDescription}
+          </p>
+          <div className="mt-8">
+            <Link href="/categories">
+              <Button variant="primary" size="lg">
+                Shop Now →
               </Button>
-            </motion.div>
+            </Link>
+          </div>
+        </motion.div>
 
-            {/* Trust badges */}
-            <motion.div
-              className="flex gap-6 mt-12 flex-wrap"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              {[
-                '✓ Healthy Plants',
-                '✓ Expert Guidance',
-                '✓ Fast Delivery',
-              ].map((badge, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm font-medium text-primary-600">
-                  <span className="text-primary-500">✓</span>
-                  {badge.replace('✓ ', '')}
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Image/Illustration */}
-          <motion.div
-            className="relative h-96 md:h-full min-h-96"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <div className="relative w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 rounded-3xl overflow-hidden shadow-soft-lg">
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center text-8xl"
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              >
-                🌱
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="relative aspect-[4/5] overflow-hidden rounded-sm bg-cream-dark md:aspect-[5/6]"
+        >
+          <Image
+            src="/images/monstera.jpg"
+            alt="Indoor plants collection"
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function LeafIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M12 22c4-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 4 8 8 12z" />
+      <path d="M12 22V10" />
+    </svg>
   );
 }

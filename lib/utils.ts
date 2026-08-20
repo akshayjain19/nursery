@@ -1,15 +1,32 @@
 import { Product, FilterState } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import businessConfig from '@/config/business.json';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function getWhatsAppLink(product: Product, phoneNumber = '+918305449559'): string {
+/** Digits only, e.g. "+91 8305449559" -> "918305449559" */
+export function toWhatsAppNumber(
+  phoneNumber: string = businessConfig.contact.whatsapp
+): string {
+  return phoneNumber.replace(/\D/g, '');
+}
+
+export function getWhatsAppChatLink(
+  phoneNumber: string = businessConfig.contact.whatsapp
+): string {
+  return `https://wa.me/${toWhatsAppNumber(phoneNumber)}`;
+}
+
+export function getWhatsAppLink(
+  product: Product,
+  phoneNumber: string = businessConfig.contact.whatsapp
+): string {
   const message = `Hi, I am interested in:\n\n${product.name}\n\nPrice: ₹${product.price}`;
   const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  return `${getWhatsAppChatLink(phoneNumber)}?text=${encodedMessage}`;
 }
 
 export function formatPrice(price: number): string {
@@ -26,18 +43,15 @@ export function filterProducts(
 ): Product[] {
   let filtered = [...products];
 
-  // Filter by category
   if (filters.category && filters.category !== 'All') {
     filtered = filtered.filter(p => p.category === filters.category);
   }
 
-  // Filter by price range
   if (filters.priceRange) {
     const [min, max] = filters.priceRange;
     filtered = filtered.filter(p => p.price >= min && p.price <= max);
   }
 
-  // Sort
   if (filters.sortBy) {
     switch (filters.sortBy) {
       case 'price-low':

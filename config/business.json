@@ -8,13 +8,22 @@
     "city": "Indore",
     "state": "Madhya Pradesh",
     "country": "India",
-    "zipCode": null
+    "zipCode": "452010",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=663%2F2%20Radhakunj%20colony%20LIG%20LINK%20ROAD%20Indore%20MP%20452010"
   },
   "contact": {
     "phone": "+91 8305449559",
     "email": "info@indorenursery.com",
+    "supportEmail": "indorenursery@gmail.com",
     "whatsapp": "+91 8305449559"
   },
+  "about": "Indore Nursery is overjoyed with the idea of aiding people with fresh breath and delivering peace and prosperity to their busy city lives. We believe in bridging the gap between people and nature, bringing nature close to people. Our passion drives us to promote greenery and allows us to contribute to the environment. We are here to put plants at your fingertips and to protect and nurture them until they enter your lives.",
+  "stats": [
+    { "value": "50,000+", "label": "Products sold" },
+    { "value": "1,000+", "label": "Customers" },
+    { "value": "10+", "label": "UPI payment support" },
+    { "value": "24", "label": "Customer support" }
+  ],
   "socialMedia": {
     "facebook": "https://www.facebook.com/profile.php?id=100079261517073",
     "instagram": "https://www.instagram.com/indorenursery",
@@ -22,6 +31,8 @@
     "youtube": null
   },
   "website": "https://indorenursery.com",
+  "logo": "/brand/indore-nursery-logo.jpg",
+  "logoIcon": "/brand/indore-nursery-icon.jpg",
   "features": [
     "Healthy Plants",
     "Expert Guidance",
@@ -96,24 +107,24 @@
   ],
   "whyChooseUs": [
     {
-      "icon": "🌿",
-      "title": "Healthy Plants",
-      "description": "Carefully selected and well-cared-for plants"
+      "icon": "📦",
+      "title": "Packaging / shipping",
+      "description": "Sturdy and smart for the plant’s safe journey"
+    },
+    {
+      "icon": "✨",
+      "title": "Curated Look",
+      "description": "Curated plants to make every corner Insta-worthy"
     },
     {
       "icon": "👨‍🌾",
-      "title": "Expert Guidance",
-      "description": "Professional advice on plant care and maintenance"
+      "title": "Expert guidance",
+      "description": "Hand-holding you through the plant world"
     },
     {
       "icon": "🚚",
-      "title": "Fast Delivery",
-      "description": "Quick delivery to your doorstep in Indore"
-    },
-    {
-      "icon": "💚",
-      "title": "Premium Quality",
-      "description": "Only the best plants and accessories"
+      "title": "Fast Shipping",
+      "description": "Free shipping in Indore"
     }
   ]
 }

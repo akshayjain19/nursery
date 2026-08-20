@@ -1,30 +1,49 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { Suspense, useMemo, useState, type ReactNode } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import Button from '@/components/Button';
+import PageHeader from '@/components/ui/PageHeader';
 import products from '@/data/products.json';
-import { CATEGORIES, FilterState } from '@/types';
+import { FilterState } from '@/types';
 import { filterProducts, getPriceRange } from '@/lib/utils';
 import { searchProducts } from '@/lib/search';
 import businessConfig from '@/config/business.json';
-import { motion } from 'framer-motion';
 
-export default function CategoriesPage() {
+const VALID_CATEGORIES = new Set(
+  businessConfig.categories.map((cat) => cat.name)
+);
+
+function CategoriesContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const categoryParam = searchParams.get('category');
+  const categoryFromQuery =
+    categoryParam && VALID_CATEGORIES.has(categoryParam)
+      ? categoryParam
+      : 'All';
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [filters, setFilters] = useState<Partial<FilterState>>({
-    category: 'All',
-    sortBy: 'relevance',
-  });
+  const [sortBy, setSortBy] = useState<FilterState['sortBy']>('relevance');
 
   const priceRange = getPriceRange(products);
-  const [selectedPriceRange, setSelectedPriceRange] = useState<[number, number]>(
-    priceRange
-  );
+  const [maxPrice, setMaxPrice] = useState(priceRange[1]);
 
-  // Search first, then filter
+  const updateCategory = (category: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (!category || category === 'All') {
+      params.delete('category');
+    } else {
+      params.set('category', category);
+    }
+    const query = params.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+  };
+
   const searchedProducts = useMemo(
     () => searchProducts(products, searchQuery),
     [searchQuery]
@@ -32,147 +51,89 @@ export default function CategoriesPage() {
 
   const filteredProducts = useMemo(() => {
     const filterState: Partial<FilterState> = {
-      ...filters,
-      category: filters.category === 'All' ? undefined : filters.category,
-      priceRange: selectedPriceRange,
+      category: categoryFromQuery === 'All' ? undefined : categoryFromQuery,
+      sortBy,
+      priceRange: [priceRange[0], maxPrice],
     };
     return filterProducts(searchedProducts, filterState);
-  }, [searchQuery, filters, selectedPriceRange]);
+  }, [searchedProducts, categoryFromQuery, sortBy, maxPrice, priceRange]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col bg-cream">
       <Navbar />
+      <PageHeader
+        eyebrow="Shop"
+        title="Our Products"
+        description={`Browse our complete collection of ${products.length} plants and garden essentials.`}
+      />
 
-      <main className="flex-1 bg-warmwhite">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Header */}
-          <motion.div
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-charcoal mb-2">
-              Our Products
-            </h1>
-            <p className="text-lg text-neutral-700">
-              Browse our complete collection of {products.length} products
-            </p>
-          </motion.div>
-
-          {/* Search Bar */}
-          <motion.div
-            className="mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+      <main className="flex-1">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mb-8">
             <input
               type="text"
               placeholder="Search plants, pots, seeds..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-6 py-3 text-lg border-2 border-primary-200 rounded-lg focus:outline-none focus:border-primary-500 transition-colors shadow-soft"
+              className="w-full border border-cream-dark bg-white px-5 py-4 text-sm text-charcoal outline-none transition-colors focus:border-olive-600"
             />
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {/* Filters Sidebar */}
-            <motion.div
-              className="md:col-span-1"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="bg-white rounded-lg p-6 shadow-soft sticky top-20">
-                {/* Category Filter */}
+          <div className="grid gap-8 lg:grid-cols-4">
+            <aside className="lg:col-span-1">
+              <div className="sticky top-24 border border-cream-dark bg-white p-6">
                 <div className="mb-8">
-                  <h3 className="font-display font-semibold text-charcoal mb-4">
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
                     Category
                   </h3>
-                  <div className="space-y-2">
-                    <button
-                      onClick={() =>
-                        setFilters({ ...filters, category: 'All' })
-                      }
-                      className={`block w-full text-left px-3 py-2 rounded transition-colors ${
-                        filters.category === 'All'
-                          ? 'bg-primary-500 text-white font-medium'
-                          : 'text-charcoal hover:bg-primary-50'
-                      }`}
+                  <div className="space-y-1">
+                    <FilterButton
+                      active={categoryFromQuery === 'All'}
+                      onClick={() => updateCategory('All')}
                     >
                       All
-                    </button>
+                    </FilterButton>
                     {businessConfig.categories.map((cat) => (
-                      <button
+                      <FilterButton
                         key={cat.id}
-                        onClick={() =>
-                          setFilters({ ...filters, category: cat.name })
-                        }
-                        className={`block w-full text-left px-3 py-2 rounded transition-colors ${
-                          filters.category === cat.name
-                            ? 'bg-primary-500 text-white font-medium'
-                            : 'text-charcoal hover:bg-primary-50'
-                        }`}
+                        active={categoryFromQuery === cat.name}
+                        onClick={() => updateCategory(cat.name)}
                       >
-                        {cat.emoji} {cat.name}
-                      </button>
+                        {cat.name}
+                      </FilterButton>
                     ))}
                   </div>
                 </div>
 
-                {/* Price Filter */}
                 <div className="mb-8">
-                  <h3 className="font-display font-semibold text-charcoal mb-4">
-                    Price Range
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
+                    Max Price
                   </h3>
                   <div className="space-y-3">
                     <input
                       type="range"
                       min={priceRange[0]}
                       max={priceRange[1]}
-                      value={selectedPriceRange[0]}
-                      onChange={(e) =>
-                        setSelectedPriceRange([
-                          parseInt(e.target.value),
-                          selectedPriceRange[1],
-                        ])
-                      }
-                      className="w-full"
+                      value={maxPrice}
+                      onChange={(e) => setMaxPrice(parseInt(e.target.value))}
+                      className="w-full accent-olive-600"
                     />
-                    <input
-                      type="range"
-                      min={priceRange[0]}
-                      max={priceRange[1]}
-                      value={selectedPriceRange[1]}
-                      onChange={(e) =>
-                        setSelectedPriceRange([
-                          selectedPriceRange[0],
-                          parseInt(e.target.value),
-                        ])
-                      }
-                      className="w-full"
-                    />
-                    <div className="text-sm text-neutral-600">
-                      ₹{selectedPriceRange[0]} - ₹{selectedPriceRange[1]}
-                    </div>
+                    <p className="text-sm text-stone">
+                      Up to ₹{maxPrice}
+                    </p>
                   </div>
                 </div>
 
-                {/* Sort */}
                 <div>
-                  <h3 className="font-display font-semibold text-charcoal mb-4">
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
                     Sort By
                   </h3>
                   <select
-                    value={filters.sortBy || 'relevance'}
+                    value={sortBy}
                     onChange={(e) =>
-                      setFilters({
-                        ...filters,
-                        sortBy: e.target.value as any,
-                      })
+                      setSortBy(e.target.value as FilterState['sortBy'])
                     }
-                    className="w-full px-3 py-2 border border-primary-200 rounded focus:outline-none focus:border-primary-500"
+                    className="w-full border border-cream-dark bg-white px-3 py-2 text-sm text-charcoal outline-none focus:border-olive-600"
                   >
                     <option value="relevance">Relevance</option>
                     <option value="price-low">Price: Low to High</option>
@@ -181,26 +142,21 @@ export default function CategoriesPage() {
                   </select>
                 </div>
               </div>
-            </motion.div>
+            </aside>
 
-            {/* Products Grid */}
-            <motion.div
-              className="md:col-span-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <div className="lg:col-span-3">
               {filteredProducts.length === 0 ? (
-                <div className="text-center py-12">
-                  <p className="text-lg text-neutral-600 mb-4">
+                <div className="py-16 text-center">
+                  <p className="mb-4 text-stone">
                     No products found matching your criteria.
                   </p>
                   <Button
                     variant="primary"
                     onClick={() => {
                       setSearchQuery('');
-                      setFilters({ category: 'All', sortBy: 'relevance' });
-                      setSelectedPriceRange(priceRange);
+                      setMaxPrice(priceRange[1]);
+                      setSortBy('relevance');
+                      updateCategory('All');
                     }}
                   >
                     Clear Filters
@@ -208,33 +164,61 @@ export default function CategoriesPage() {
                 </div>
               ) : (
                 <>
-                  <p className="text-sm text-neutral-600 mb-6">
+                  <p className="mb-6 text-sm text-stone">
                     Showing {filteredProducts.length} of {products.length}{' '}
                     products
                   </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredProducts.map((product, index) => (
-                      <motion.div
-                        key={product.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: index * 0.05,
-                        }}
-                      >
-                        <ProductCard product={product} />
-                      </motion.div>
+                  <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
+                    {filteredProducts.map((product) => (
+                      <ProductCard key={product.id} product={product} />
                     ))}
                   </div>
                 </>
               )}
-            </motion.div>
+            </div>
           </div>
         </div>
       </main>
 
       <Footer />
     </div>
+  );
+}
+
+function FilterButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`block w-full px-3 py-2 text-left text-sm transition-colors ${
+        active
+          ? 'bg-olive-600 text-white'
+          : 'text-charcoal hover:bg-cream-dark'
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+export default function CategoriesPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-cream text-charcoal">
+          Loading products...
+        </div>
+      }
+    >
+      <CategoriesContent />
+    </Suspense>
   );
 }
