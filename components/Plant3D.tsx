@@ -117,7 +117,7 @@ function Plant() {
   });
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} scale={0.58}>
       <mesh position={[0, 0.2, 0]}>
         <cylinderGeometry args={[0.035, 0.045, 1.8, 10]} />
         <meshStandardMaterial color="#2a5c3e" roughness={0.7} />
@@ -154,7 +154,7 @@ function Plant() {
 export default function Plant3D() {
   return (
     <Canvas
-      camera={{ position: [0, 0.6, 4.2], fov: 40 }}
+      camera={{ position: [0, 0.35, 6.8], fov: 38 }}
       gl={{ alpha: true, antialias: true }}
       dpr={[1, 2]}
       style={{ background: 'transparent' }}

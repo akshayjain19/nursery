@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <Logo variant="footer" theme="dark" />
+            <Logo variant="footer" />
             <div className="mt-6 flex gap-3">
               {businessConfig.socialMedia.instagram && (
                 <SocialLink

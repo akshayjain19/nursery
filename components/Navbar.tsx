@@ -34,7 +34,7 @@ export default function Navbar({ theme = 'dark' }: NavbarProps) {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-6">
-          <Logo variant="header" theme={isDark ? 'dark' : 'light'} />
+          <Logo variant="header" />
 
           <nav className="hidden items-center gap-8 lg:flex">
             {navLinks.map((link) => (
