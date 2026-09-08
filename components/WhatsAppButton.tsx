@@ -9,7 +9,7 @@ import businessConfig from '@/config/business.json';
 interface WhatsAppButtonProps {
   product: Product;
   phoneNumber?: string;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'lime';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
 }

@@ -29,10 +29,10 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-6 left-1/2 z-[100] w-[min(92vw,28rem)] -translate-x-1/2 border border-olive-200 bg-white px-5 py-4 text-sm text-charcoal shadow-soft-lg"
+          className="fixed bottom-6 left-1/2 z-[100] w-[min(92vw,28rem)] -translate-x-1/2 border border-lime/20 bg-forest-panel px-5 py-4 text-sm text-white shadow-[0_16px_40px_rgba(0,0,0,0.4)]"
         >
-          <p className="font-semibold text-olive-700">WhatsApp</p>
-          <p className="mt-1 text-stone">{message}</p>
+          <p className="font-semibold text-lime">WhatsApp</p>
+          <p className="mt-1 text-white/70">{message}</p>
         </div>
       )}
     </ToastContext.Provider>

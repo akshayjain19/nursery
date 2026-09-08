@@ -67,8 +67,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-charcoal);
-  background-color: var(--color-cream);
+  color: rgba(255, 255, 255, 0.85);
+  background-color: var(--color-forest);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -110,5 +110,63 @@ a {
   }
   50% {
     transform: translateY(-8px) rotate(calc(var(--leaf-rotate, 0deg) + 3deg));
+  }
+}
+
+@layer components {
+  .card-surface {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in srgb, var(--color-forest-panel) 60%, transparent);
+    border-radius: 0.25rem;
+  }
+
+  .content-prose {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.625;
+  }
+
+  .content-prose h2 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: white;
+    margin-top: 1.5rem;
+  }
+
+  .content-prose p {
+    margin-top: 0.75rem;
+  }
+
+  .content-prose ul {
+    margin-top: 0.75rem;
+    list-style-type: disc;
+    padding-left: 1.25rem;
+  }
+
+  .content-prose li {
+    margin-top: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .content-prose a {
+    color: var(--color-lime);
+    font-weight: 600;
+  }
+
+  .content-prose a:hover {
+    text-decoration: underline;
+  }
+
+  .input-dark {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-forest-panel);
+    color: white;
+    outline: none;
+    transition: border-color 0.2s ease;
+    color-scheme: dark;
+  }
+
+  .input-dark:focus {
+    border-color: var(--color-lime);
   }
 }

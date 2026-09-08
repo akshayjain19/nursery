@@ -7,23 +7,23 @@ export default function ReturnsPage() {
       title="Refund and Returns Policy"
       description="Last updated date: 12-07-2022"
     >
-      <div className="space-y-6 text-stone leading-relaxed">
+      <div className="space-y-6">
         <p>
           Thank you for purchasing with us. If you are not completely satisfied
           with your purchase, you may return the item to us for a full refund
           only, subject to the terms below.
         </p>
         <section>
-          <h2 className="font-serif text-xl text-charcoal">Returns</h2>
-          <p className="mt-3">
+          <h2>Returns</h2>
+          <p>
             All returns must be postmarked within ten days of the purchase date.
             All returned items must be in new and unused condition, with all
             original tags and labels attached.
           </p>
         </section>
         <section>
-          <h2 className="font-serif text-xl text-charcoal">Return process</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5">
+          <h2>Return process</h2>
+          <ul>
             <li>
               Email customer service at info@indorenursery.com to obtain a RAM
               number.

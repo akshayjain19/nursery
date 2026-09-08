@@ -21,13 +21,13 @@ export default function Button({
       className={cn(
         'inline-flex items-center justify-center gap-2 font-sans font-semibold tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2',
         {
-          'bg-olive-600 text-white hover:bg-olive-700 focus:ring-olive-600 focus:ring-offset-cream':
+          'bg-teal text-white hover:bg-teal-light focus:ring-teal focus:ring-offset-forest':
             variant === 'primary',
-          'bg-olive-800 text-white hover:bg-olive-900 focus:ring-olive-800 focus:ring-offset-cream':
+          'bg-forest-panel text-white hover:bg-forest-mid focus:ring-white/30 focus:ring-offset-forest':
             variant === 'secondary',
-          'border border-olive-600 text-olive-600 hover:bg-olive-600 hover:text-white focus:ring-olive-600 focus:ring-offset-cream':
+          'border border-lime/40 text-lime hover:bg-lime hover:text-forest focus:ring-lime focus:ring-offset-forest':
             variant === 'outline',
-          'text-olive-600 hover:bg-olive-50': variant === 'ghost',
+          'text-lime hover:bg-white/5': variant === 'ghost',
           'bg-lime text-forest hover:bg-lime-dim focus:ring-lime focus:ring-offset-forest font-bold':
             variant === 'lime',
         },

@@ -59,7 +59,7 @@ function CategoriesContent() {
   }, [searchedProducts, categoryFromQuery, sortBy, maxPrice, priceRange]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-cream">
+    <div className="flex min-h-screen flex-col bg-forest">
       <Navbar />
       <PageHeader
         eyebrow="Shop"
@@ -75,15 +75,15 @@ function CategoriesContent() {
               placeholder="Search plants, pots, seeds..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full border border-cream-dark bg-white px-5 py-4 text-sm text-charcoal outline-none transition-colors focus:border-olive-600"
+              className="input-dark px-5 py-4 text-sm"
             />
           </div>
 
           <div className="grid gap-8 lg:grid-cols-4">
             <aside className="lg:col-span-1">
-              <div className="sticky top-24 border border-cream-dark bg-white p-6">
+              <div className="card-surface sticky top-24 p-6">
                 <div className="mb-8">
-                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-lime">
                     Category
                   </h3>
                   <div className="space-y-1">
@@ -106,7 +106,7 @@ function CategoriesContent() {
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-lime">
                     Max Price
                   </h3>
                   <div className="space-y-3">
@@ -116,16 +116,14 @@ function CategoriesContent() {
                       max={priceRange[1]}
                       value={maxPrice}
                       onChange={(e) => setMaxPrice(parseInt(e.target.value))}
-                      className="w-full accent-olive-600"
+                      className="w-full accent-lime"
                     />
-                    <p className="text-sm text-stone">
-                      Up to ₹{maxPrice}
-                    </p>
+                    <p className="text-sm text-white/60">Up to ₹{maxPrice}</p>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-lime">
                     Sort By
                   </h3>
                   <select
@@ -133,7 +131,7 @@ function CategoriesContent() {
                     onChange={(e) =>
                       setSortBy(e.target.value as FilterState['sortBy'])
                     }
-                    className="w-full border border-cream-dark bg-white px-3 py-2 text-sm text-charcoal outline-none focus:border-olive-600"
+                    className="input-dark px-3 py-2 text-sm"
                   >
                     <option value="relevance">Relevance</option>
                     <option value="price-low">Price: Low to High</option>
@@ -147,11 +145,12 @@ function CategoriesContent() {
             <div className="lg:col-span-3">
               {filteredProducts.length === 0 ? (
                 <div className="py-16 text-center">
-                  <p className="mb-4 text-stone">
+                  <p className="mb-4 text-white/60">
                     No products found matching your criteria.
                   </p>
                   <Button
-                    variant="primary"
+                    variant="lime"
+                    className="rounded-full"
                     onClick={() => {
                       setSearchQuery('');
                       setMaxPrice(priceRange[1]);
@@ -164,13 +163,13 @@ function CategoriesContent() {
                 </div>
               ) : (
                 <>
-                  <p className="mb-6 text-sm text-stone">
+                  <p className="mb-6 text-sm text-white/60">
                     Showing {filteredProducts.length} of {products.length}{' '}
                     products
                   </p>
                   <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                     {filteredProducts.map((product) => (
-                      <ProductCard key={product.id} product={product} />
+                      <ProductCard key={product.id} product={product} theme="dark" />
                     ))}
                   </div>
                 </>
@@ -198,10 +197,10 @@ function FilterButton({
     <button
       type="button"
       onClick={onClick}
-      className={`block w-full px-3 py-2 text-left text-sm transition-colors ${
+      className={`block w-full rounded-sm px-3 py-2 text-left text-sm transition-colors ${
         active
-          ? 'bg-olive-600 text-white'
-          : 'text-charcoal hover:bg-cream-dark'
+          ? 'bg-lime text-forest'
+          : 'text-white/75 hover:bg-white/5'
       }`}
     >
       {children}
@@ -213,7 +212,7 @@ export default function CategoriesPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-screen items-center justify-center bg-cream text-charcoal">
+        <div className="flex min-h-screen items-center justify-center bg-forest text-white/75">
           Loading products...
         </div>
       }

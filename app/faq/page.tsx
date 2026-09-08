@@ -45,12 +45,11 @@ export default function FaqPage() {
     >
       <div className="space-y-4">
         {faqs.map((item) => (
-          <section
-            key={item.q}
-            className="border border-cream-dark bg-white p-6"
-          >
-            <h2 className="font-serif text-xl text-charcoal">{item.q}</h2>
-            <p className="mt-3 leading-relaxed text-stone">{item.a}</p>
+          <section key={item.q} className="card-surface p-6">
+            <h2 className="!mt-0 font-display text-xl font-bold text-white">
+              {item.q}
+            </h2>
+            <p className="mt-3">{item.a}</p>
           </section>
         ))}
       </div>

@@ -6,7 +6,7 @@ import { useOpenWhatsApp } from '@/lib/use-open-whatsapp';
 import Button from './Button';
 
 interface WhatsAppChatButtonProps {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'lime';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   children?: ReactNode;

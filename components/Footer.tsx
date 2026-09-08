@@ -10,11 +10,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-cream-dark">
+    <footer className="border-t border-white/5 bg-forest-light">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <Logo variant="footer" />
+            <Logo variant="footer" theme="dark" />
             <div className="mt-6 flex gap-3">
               {businessConfig.socialMedia.instagram && (
                 <SocialLink
@@ -68,14 +68,14 @@ export default function Footer() {
           />
 
           <div className="flex flex-col items-start justify-start gap-4 lg:items-end">
-            <WhatsAppChatButton variant="outline" size="sm" />
-            <p className="font-serif text-xl italic text-olive-600">
+            <WhatsAppChatButton variant="lime" size="sm" className="rounded-full" />
+            <p className="font-serif text-xl italic text-lime/80">
               thank you for supporting green living ♡
             </p>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-cream pt-6 text-center text-xs text-stone">
+        <div className="mt-12 border-t border-white/5 pt-6 text-center text-xs text-white/45">
           © {currentYear} {businessConfig.businessName}. All Rights Reserved.
         </div>
       </div>
@@ -92,7 +92,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
+      <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-white">
         {title}
       </h4>
       <ul className="space-y-2">
@@ -100,7 +100,7 @@ function FooterColumn({
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-sm text-stone transition-colors hover:text-olive-600"
+              className="text-sm text-white/60 transition-colors hover:text-lime"
               target={link.href.startsWith('http') ? '_blank' : undefined}
               rel={
                 link.href.startsWith('http') ? 'noopener noreferrer' : undefined
@@ -130,7 +130,7 @@ function SocialLink({
       aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-olive-600 text-olive-600 transition-colors hover:bg-olive-600 hover:text-white"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-lime/40 text-lime transition-colors hover:bg-lime hover:text-forest"
     >
       <SocialIcon platform={platform} />
     </Link>

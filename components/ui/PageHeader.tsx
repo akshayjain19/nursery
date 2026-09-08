@@ -10,18 +10,18 @@ export default function PageHeader({
   description,
 }: PageHeaderProps) {
   return (
-    <div className="border-b border-cream-dark bg-cream py-14 md:py-20">
+    <div className="border-b border-white/5 bg-forest-light py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {eyebrow && (
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-olive-600">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-lime">
             {eyebrow}
           </p>
         )}
-        <h1 className="font-serif text-4xl text-charcoal md:text-5xl lg:text-6xl">
+        <h1 className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 max-w-2xl text-lg text-stone">{description}</p>
+          <p className="mt-4 max-w-2xl text-lg text-white/65">{description}</p>
         )}
       </div>
     </div>

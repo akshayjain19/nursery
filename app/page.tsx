@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-forest">
-      <Navbar theme="dark" />
+      <Navbar />
       <Hero />
       <FeaturesBar />
 

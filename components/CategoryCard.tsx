@@ -14,7 +14,7 @@ interface CategoryCardProps {
 export default function CategoryCard({
   name,
   href = '/categories',
-  theme = 'light',
+  theme = 'dark',
 }: CategoryCardProps) {
   const image = getCategoryImage(name);
   const isDark = theme === 'dark';

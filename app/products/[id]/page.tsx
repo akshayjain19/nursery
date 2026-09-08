@@ -33,25 +33,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const relatedProducts = getRelatedProducts(product);
 
   return (
-    <div className="flex min-h-screen flex-col bg-cream">
+    <div className="flex min-h-screen flex-col bg-forest">
       <Navbar />
 
       <main className="flex-1">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <nav className="mb-8 text-sm text-stone">
-            <Link href="/" className="hover:text-olive-600">
+          <nav className="mb-8 text-sm text-white/50">
+            <Link href="/" className="hover:text-lime">
               Home
             </Link>
             <span className="mx-2">/</span>
-            <Link href="/categories" className="hover:text-olive-600">
+            <Link href="/categories" className="hover:text-lime">
               Shop
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-charcoal">{product.name}</span>
+            <span className="text-white">{product.name}</span>
           </nav>
 
           <div className="grid gap-10 lg:grid-cols-2">
-            <div className="relative aspect-square overflow-hidden border border-cream-dark bg-white">
+            <div className="card-surface relative aspect-square overflow-hidden">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -63,56 +63,61 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-olive-600">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-lime">
                 {product.category}
               </p>
-              <h1 className="mt-3 font-serif text-4xl text-charcoal md:text-5xl">
+              <h1 className="mt-3 font-display text-4xl font-bold text-white md:text-5xl">
                 {product.name}
               </h1>
               {product.scientificName && (
-                <p className="mt-2 text-sm italic text-stone">
+                <p className="mt-2 text-sm italic text-white/50">
                   {product.scientificName}
                 </p>
               )}
-              <p className="mt-6 text-3xl font-semibold text-charcoal">
+              <p className="mt-6 text-3xl font-semibold text-lime">
                 {formatPrice(product.price)}
               </p>
               {product.description && (
-                <p className="mt-6 leading-relaxed text-stone">
+                <p className="mt-6 leading-relaxed text-white/70">
                   {product.description}
                 </p>
               )}
 
-              <dl className="mt-8 grid gap-4 border-y border-cream-dark py-6 text-sm">
+              <dl className="mt-8 grid gap-4 border-y border-white/10 py-6 text-sm">
                 {product.careLevel && (
                   <div className="flex justify-between gap-4">
-                    <dt className="font-semibold uppercase tracking-[0.12em] text-charcoal">
+                    <dt className="font-semibold uppercase tracking-[0.12em] text-white">
                       Care level
                     </dt>
-                    <dd className="text-stone">{product.careLevel}</dd>
+                    <dd className="text-white/60">{product.careLevel}</dd>
                   </div>
                 )}
                 {product.medicinal && (
                   <div className="flex justify-between gap-4">
-                    <dt className="font-semibold uppercase tracking-[0.12em] text-charcoal">
+                    <dt className="font-semibold uppercase tracking-[0.12em] text-white">
                       Type
                     </dt>
-                    <dd className="text-stone">Medicinal plant</dd>
+                    <dd className="text-white/60">Medicinal plant</dd>
                   </div>
                 )}
                 <div className="flex justify-between gap-4">
-                  <dt className="font-semibold uppercase tracking-[0.12em] text-charcoal">
+                  <dt className="font-semibold uppercase tracking-[0.12em] text-white">
                     Delivery
                   </dt>
-                  <dd className="text-stone">Free shipping in Indore</dd>
+                  <dd className="text-white/60">Free shipping in Indore</dd>
                 </div>
               </dl>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <WhatsAppButton product={product} variant="primary" size="lg" />
+                <WhatsAppButton
+                  product={product}
+                  variant="lime"
+                  size="lg"
+                  className="rounded-full"
+                />
                 <Link
                   href={`/categories?category=${encodeURIComponent(product.category)}`}
-                  className="inline-flex items-center justify-center border border-olive-600 px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-olive-600 transition-colors hover:bg-olive-600 hover:text-white"
+                  className="inline-flex items-center justify-center rounded-full border border-lime/40 px-8 py-4 text-sm font-semibold text-lime transition-colors hover:bg-lime hover:text-forest"
                 >
                   More in {product.category}
                 </Link>
@@ -122,12 +127,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           {relatedProducts.length > 0 && (
             <section className="mt-20">
-              <h2 className="font-serif text-3xl text-charcoal">
+              <h2 className="font-display text-3xl font-bold text-white">
                 You may also like
               </h2>
               <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
                 {relatedProducts.map((related) => (
-                  <ProductCard key={related.id} product={related} />
+                  <ProductCard key={related.id} product={related} theme="dark" />
                 ))}
               </div>
             </section>

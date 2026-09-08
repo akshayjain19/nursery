@@ -17,12 +17,12 @@ export default function ContentPage({
   children,
 }: ContentPageProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-cream">
+    <div className="flex min-h-screen flex-col bg-forest">
       <Navbar />
       <PageHeader eyebrow={eyebrow} title={title} description={description} />
       <main className="flex-1">
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          {children}
+          <div className="content-prose">{children}</div>
         </div>
       </main>
       <Footer />

@@ -10,7 +10,7 @@ export default function LocationMap({ className = '' }: LocationMapProps) {
   );
 
   return (
-    <div className={`overflow-hidden border border-cream-dark bg-white ${className}`}>
+    <div className={`card-surface overflow-hidden ${className}`}>
       <div className="relative aspect-[16/10] w-full">
         <iframe
           title="Indore Nursery location on Google Maps"
@@ -21,12 +21,12 @@ export default function LocationMap({ className = '' }: LocationMapProps) {
           allowFullScreen
         />
       </div>
-      <div className="flex items-center justify-between gap-4 border-t border-cream-dark px-5 py-4">
+      <div className="flex items-center justify-between gap-4 border-t border-white/10 px-5 py-4">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-lime">
             Visit us
           </p>
-          <p className="mt-1 text-sm text-stone">
+          <p className="mt-1 text-sm text-white/65">
             {businessConfig.location.address}, {businessConfig.location.city}
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function LocationMap({ className = '' }: LocationMapProps) {
           href={businessConfig.location.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 text-xs font-semibold uppercase tracking-[0.12em] text-olive-600 hover:underline"
+          className="shrink-0 text-xs font-semibold uppercase tracking-[0.12em] text-lime hover:underline"
         >
           Open in Maps →
         </a>

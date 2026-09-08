@@ -7,7 +7,7 @@ export default function PrivacyPage() {
       title="Privacy Policy"
       description="Effective date: 2022-06-21"
     >
-      <div className="space-y-5 text-stone leading-relaxed">
+      <div className="space-y-5">
         <p>
           Welcome to Indore Nursery. Indore Nursery operates IndoreNursery.com
           (the “Service”). This Privacy Policy governs your visit and explains

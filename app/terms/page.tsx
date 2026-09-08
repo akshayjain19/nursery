@@ -7,7 +7,7 @@ export default function TermsPage() {
       title="Terms & Conditions"
       description="Last updated on Aug 28th 2023"
     >
-      <div className="space-y-5 text-stone leading-relaxed">
+      <div className="space-y-5">
         <p>
           If you continue to browse and use this website you are agreeing to
           comply with and be bound by the following terms and conditions of use,
@@ -19,7 +19,7 @@ export default function TermsPage() {
           registered/operational office is 663/2, Radhakunj Colony, LIG Link
           Road, Indore, Madhya Pradesh 452010.
         </p>
-        <ul className="list-disc space-y-2 pl-5">
+        <ul>
           <li>
             The content of the pages of this website is for your general
             information and use only. It is subject to change without notice.

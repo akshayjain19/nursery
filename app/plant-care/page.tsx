@@ -49,12 +49,11 @@ export default function PlantCarePage() {
     >
       <div className="space-y-6">
         {careGuides.map((guide) => (
-          <section
-            key={guide.title}
-            className="border border-cream-dark bg-white p-6"
-          >
-            <h2 className="font-serif text-2xl text-charcoal">{guide.title}</h2>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-stone">
+          <section key={guide.title} className="card-surface p-6">
+            <h2 className="!mt-0 font-display text-2xl font-bold text-white">
+              {guide.title}
+            </h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5">
               {guide.tips.map((tip) => (
                 <li key={tip}>{tip}</li>
               ))}
@@ -63,16 +62,10 @@ export default function PlantCarePage() {
         ))}
       </div>
 
-      <p className="mt-8 text-sm text-stone">
+      <p className="mt-8 text-sm text-white/50">
         Need personal advice?{' '}
-        <a href="/contact" className="font-semibold text-olive-600 hover:underline">
-          Contact us
-        </a>{' '}
-        or check our{' '}
-        <a href="/faq" className="font-semibold text-olive-600 hover:underline">
-          FAQs
-        </a>{' '}
-        for shipping and returns.
+        <a href="/contact">Contact us</a> or check our{' '}
+        <a href="/faq">FAQs</a> for shipping and returns.
       </p>
     </ContentPage>
   );

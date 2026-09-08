@@ -7,7 +7,7 @@ export default function ShippingPage() {
       title="Shipping & Delivery Policy"
       description="Last updated on Aug 28th 2023"
     >
-      <div className="space-y-5 text-stone leading-relaxed">
+      <div className="space-y-5">
         <p>
           For international buyers, orders are shipped and delivered through
           registered international courier companies and/or International Speed

@@ -23,7 +23,7 @@ function getRating(productId: number) {
 export default function ProductCard({
   product,
   showRating = true,
-  theme = 'light',
+  theme = 'dark',
 }: ProductCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
   const [liked, setLiked] = useState(false);

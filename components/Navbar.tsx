@@ -19,7 +19,7 @@ interface NavbarProps {
   theme?: 'light' | 'dark';
 }
 
-export default function Navbar({ theme = 'light' }: NavbarProps) {
+export default function Navbar({ theme = 'dark' }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const openWhatsApp = useOpenWhatsApp();
   const isDark = theme === 'dark';
