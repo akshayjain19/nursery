@@ -1,66 +1,66 @@
 'use client';
 
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Button from './Button';
+import ForegroundLeaves from './ForegroundLeaves';
 import businessConfig from '@/config/business.json';
+
+const Plant3D = dynamic(() => import('./Plant3D'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center">
+      <div className="h-16 w-16 animate-pulse rounded-full bg-lime/20" />
+    </div>
+  ),
+});
 
 export default function Hero() {
   return (
-    <section className="bg-cream">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-20 lg:px-8 lg:py-24">
+    <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-forest">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(18,53,40,0.6)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(212,248,44,0.04)_0%,transparent_50%)]" />
+
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 md:min-h-[calc(100vh-5rem)] md:grid-cols-2 md:py-20 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="relative z-30"
         >
-          <div className="mb-5 flex items-center gap-2 text-olive-600">
-            <LeafIcon />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em]">
-              Welcome
-            </span>
-          </div>
-          <h1 className="font-serif text-5xl leading-[1.05] text-charcoal md:text-6xl lg:text-7xl">
-            Bring Nature Home
+          <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-lime sm:text-6xl lg:text-7xl">
+            Bring your next
+            <br />
+            plants home
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-stone">
-            {businessConfig.businessDescription}
+          <p className="mt-6 max-w-md text-base leading-relaxed text-white/75 md:text-lg">
+            Find your dream plant for your home decoration with us, and we will
+            make it happen. {businessConfig.tagline}.
           </p>
-          <div className="mt-8">
+          <div className="mt-10">
             <Link href="/categories">
-              <Button variant="primary" size="lg">
-                Shop Now →
+              <Button variant="lime" size="lg" className="rounded-full px-10">
+                Explore More
               </Button>
             </Link>
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="relative aspect-[4/5] overflow-hidden rounded-sm bg-cream-dark md:aspect-[5/6]"
+          transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
+          className="relative z-10 flex h-[420px] items-center justify-center md:h-[520px] lg:h-[580px]"
         >
-          <Image
-            src="/images/monstera.jpg"
-            alt="Indoor plants collection"
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+          <div className="absolute inset-y-4 right-0 w-[90%] rounded-3xl border border-white/5 bg-forest-panel/50 backdrop-blur-sm" />
+          <div className="relative h-full w-full">
+            <Plant3D />
+          </div>
         </motion.div>
       </div>
-    </section>
-  );
-}
 
-function LeafIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M12 22c4-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 4 8 8 12z" />
-      <path d="M12 22V10" />
-    </svg>
+      <ForegroundLeaves />
+    </section>
   );
 }

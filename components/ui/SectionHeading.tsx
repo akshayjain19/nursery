@@ -2,13 +2,17 @@ interface SectionHeadingProps {
   title: string;
   subtitle?: string;
   align?: 'left' | 'center';
+  theme?: 'light' | 'dark';
 }
 
 export default function SectionHeading({
   title,
   subtitle,
   align = 'center',
+  theme = 'light',
 }: SectionHeadingProps) {
+  const isDark = theme === 'dark';
+
   return (
     <div className={align === 'center' ? 'text-center' : 'text-left'}>
       <div
@@ -16,18 +20,26 @@ export default function SectionHeading({
           align === 'center' ? 'justify-center' : ''
         }`}
       >
-        <span className="text-olive-600" aria-hidden>
+        <span className={isDark ? 'text-lime' : 'text-olive-600'} aria-hidden>
           <LeafIcon />
         </span>
-        <h2 className="font-serif text-3xl md:text-4xl tracking-wide text-charcoal uppercase">
+        <h2
+          className={`font-display text-3xl font-bold tracking-tight md:text-4xl ${
+            isDark ? 'text-white' : 'text-charcoal'
+          }`}
+        >
           {title}
         </h2>
-        <span className="text-olive-600" aria-hidden>
+        <span className={isDark ? 'text-lime' : 'text-olive-600'} aria-hidden>
           <LeafIcon />
         </span>
       </div>
       {subtitle && (
-        <p className="mx-auto max-w-2xl text-stone text-base md:text-lg">
+        <p
+          className={`mx-auto max-w-2xl text-base md:text-lg ${
+            isDark ? 'text-white/65' : 'text-stone'
+          }`}
+        >
           {subtitle}
         </p>
       )}

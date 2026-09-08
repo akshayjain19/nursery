@@ -26,16 +26,17 @@ export default function Home() {
   const featuredProducts = products.slice(0, 6);
 
   return (
-    <div className="flex min-h-screen flex-col bg-cream">
-      <Navbar />
+    <div className="flex min-h-screen flex-col bg-forest">
+      <Navbar theme="dark" />
       <Hero />
       <FeaturesBar />
 
-      <section className="py-16 md:py-20">
+      <section className="bg-forest-mid py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Shop by Category"
             subtitle="Browse through our curated collection of plants and garden essentials."
+            theme="dark"
           />
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-6">
             {featuredCategories.map((category, index) => (
@@ -46,18 +47,19 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <CategoryCard name={category} />
+                <CategoryCard name={category} theme="dark" />
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-forest-light py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Best Sellers"
             subtitle="Our most loved products by customers."
+            theme="dark"
           />
           <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
             {featuredProducts.map((product, index) => (
@@ -68,13 +70,13 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.06 }}
                 viewport={{ once: true }}
               >
-                <ProductCard product={product} />
+                <ProductCard product={product} theme="dark" />
               </motion.div>
             ))}
           </div>
           <div className="mt-12 text-center">
             <Link href="/categories">
-              <Button variant="primary" size="lg">
+              <Button variant="lime" size="lg" className="rounded-full px-10">
                 View All Plants
               </Button>
             </Link>

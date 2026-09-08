@@ -8,6 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        forest: {
+          DEFAULT: '#071612',
+          light: '#0c221c',
+          mid: '#0f2e26',
+          panel: '#123528',
+        },
+        lime: {
+          DEFAULT: '#d4f82c',
+          dim: '#b8d926',
+        },
+        teal: {
+          DEFAULT: '#0e6450',
+          light: '#12876d',
+        },
         olive: {
           50: '#f4f6f0',
           100: '#e6ebe0',
@@ -56,7 +70,7 @@ const config: Config = {
       fontFamily: {
         sans: ['Lato', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
-        display: ['Playfair Display', 'Georgia', 'serif'],
+        display: ['Outfit', 'sans-serif'],
       },
       boxShadow: {
         soft: '0 2px 12px rgba(44, 44, 40, 0.06)',

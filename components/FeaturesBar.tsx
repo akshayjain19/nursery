@@ -32,17 +32,19 @@ export default function FeaturesBar() {
   }));
 
   return (
-    <section className="border-y border-cream-dark bg-white py-12 md:py-16">
+    <section className="border-y border-white/5 bg-forest-light py-12 md:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {items.map((item) => (
           <div key={item.title} className="text-center">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center text-olive-600">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center text-lime">
               <item.Icon />
             </div>
-            <h3 className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-charcoal">
+            <h3 className="mb-2 text-sm font-bold text-white">
               {item.title}
             </h3>
-            <p className="text-sm leading-relaxed text-stone">{item.description}</p>
+            <p className="text-sm leading-relaxed text-white/60">
+              {item.description}
+            </p>
           </div>
         ))}
       </div>

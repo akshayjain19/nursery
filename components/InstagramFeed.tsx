@@ -14,11 +14,12 @@ export default function InstagramFeed() {
     : '@indorenursery';
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-forest-mid py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Follow Our Green Journey"
           subtitle={handle}
+          theme="dark"
         />
         <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
           {galleryImages.map((product) => (
@@ -27,7 +28,7 @@ export default function InstagramFeed() {
               href={businessConfig.socialMedia.instagram ?? '/categories'}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square overflow-hidden rounded-sm bg-cream-dark"
+              className="group relative aspect-square overflow-hidden rounded-sm bg-forest-panel"
             >
               <Image
                 src={product.image}

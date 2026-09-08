@@ -6,10 +6,10 @@ import Button from './Button';
 
 export default function PromoBanner() {
   return (
-    <section className="bg-cream py-16 md:py-20">
+    <section className="bg-forest py-16 md:py-20">
       <div className="mx-auto grid max-w-7xl items-stretch gap-0 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div className="flex flex-col justify-center bg-olive-700 px-8 py-12 text-white md:px-12 md:py-16">
-          <h2 className="font-serif text-3xl leading-tight md:text-4xl lg:text-5xl">
+        <div className="flex flex-col justify-center rounded-l-2xl bg-teal px-8 py-12 text-white md:px-12 md:py-16">
+          <h2 className="font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
             Green spaces,
             <br />
             better places.
@@ -21,16 +21,16 @@ export default function PromoBanner() {
           <div className="mt-8">
             <Link href="/about">
               <Button
-                variant="outline"
+                variant="lime"
                 size="md"
-                className="border-white text-white hover:bg-white hover:text-olive-700"
+                className="rounded-full"
               >
                 Learn More →
               </Button>
             </Link>
           </div>
         </div>
-        <div className="relative min-h-[280px] overflow-hidden lg:min-h-full">
+        <div className="relative min-h-[280px] overflow-hidden rounded-r-2xl lg:min-h-full">
           <Image
             src="/images/peace-lily.jpg"
             alt="Plants in a living space"
