@@ -51,7 +51,7 @@ function AnimatedLeaf({ config }: { config: LeafConfig }) {
         roughness={0.38}
         metalness={0.08}
         emissive={config.color}
-        emissiveIntensity={0.08}
+        emissiveIntensity={0.18}
       />
     </mesh>
   );
@@ -113,11 +113,11 @@ function Plant() {
     if (!groupRef.current) return;
     const t = state.clock.elapsedTime;
     groupRef.current.rotation.y = Math.sin(t * 0.35) * 0.12;
-    groupRef.current.position.y = Math.sin(t * 0.8) * 0.03 - 0.4;
+    groupRef.current.position.y = Math.sin(t * 0.8) * 0.03 - 0.2;
   });
 
   return (
-    <group ref={groupRef} scale={0.58}>
+    <group ref={groupRef} scale={0.72}>
       <mesh position={[0, 0.2, 0]}>
         <cylinderGeometry args={[0.035, 0.045, 1.8, 10]} />
         <meshStandardMaterial color="#2a5c3e" roughness={0.7} />
@@ -154,15 +154,16 @@ function Plant() {
 export default function Plant3D() {
   return (
     <Canvas
-      camera={{ position: [0, 0.35, 6.8], fov: 38 }}
+      className="h-full w-full"
+      camera={{ position: [0, 0.55, 5.2], fov: 42 }}
       gl={{ alpha: true, antialias: true }}
       dpr={[1, 2]}
-      style={{ background: 'transparent' }}
+      style={{ background: 'transparent', width: '100%', height: '100%' }}
     >
-      <ambientLight intensity={0.45} color="#b8e8c8" />
-      <directionalLight position={[4, 6, 4]} intensity={1.1} color="#f0ffe8" />
-      <directionalLight position={[-3, 2, -2]} intensity={0.35} color="#d4f82c" />
-      <pointLight position={[0, 2, 2]} intensity={0.5} color="#7fff9a" distance={8} />
+      <ambientLight intensity={0.65} color="#d0f0d8" />
+      <directionalLight position={[4, 6, 4]} intensity={1.4} color="#f0ffe8" />
+      <directionalLight position={[-3, 2, -2]} intensity={0.5} color="#d4f82c" />
+      <pointLight position={[0, 2, 2]} intensity={0.7} color="#7fff9a" distance={10} />
 
       <Suspense fallback={null}>
         <Float speed={1.8} rotationIntensity={0.12} floatIntensity={0.35}>

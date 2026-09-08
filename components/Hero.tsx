@@ -51,10 +51,10 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-          className="relative z-10 mx-auto flex h-[280px] max-w-sm items-center justify-center sm:h-[320px] md:h-[360px] lg:max-w-md lg:h-[400px]"
+          className="relative z-10 mx-auto flex h-[360px] w-full max-w-md items-center justify-center sm:h-[400px] md:h-[460px] lg:max-w-lg lg:h-[500px]"
         >
-          <div className="absolute inset-y-6 inset-x-4 rounded-3xl border border-white/5 bg-forest-panel/50 backdrop-blur-sm" />
-          <div className="relative h-[85%] w-[85%]">
+          <div className="absolute inset-4 rounded-3xl border border-white/5 bg-forest-panel/50 backdrop-blur-sm" />
+          <div className="relative z-10 h-full w-full min-h-[300px] p-6">
             <Plant3D />
           </div>
         </motion.div>
