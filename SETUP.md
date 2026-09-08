@@ -86,6 +86,36 @@ npm run dev
 
 Open http://localhost:3000 in your browser. Hard refresh: `Ctrl + Shift + R`.
 
+### Not seeing UI changes?
+
+If the site still looks **cream/light** (old design), your folder has **stale code**. Do this:
+
+1. **Stop** the dev server (`Ctrl + C`)
+2. **Update the code** (pick one):
+
+   **With Git:**
+   ```powershell
+   cd C:\Users\Guest_NEW\Documents\nursery
+   git pull origin dev
+   ```
+
+   **Without Git:** delete the old `nursery` folder, then re-download ZIP from  
+   https://github.com/akshayjain19/nursery (branch: `dev`) and extract it.
+
+3. **Reinstall dependencies** (required after UI updates — new 3D packages):
+   ```powershell
+   npm install
+   ```
+
+4. **Restart:**
+   ```powershell
+   npm run dev
+   ```
+
+5. **Hard refresh** the browser: `Ctrl + Shift + R`
+
+You should see a **dark green** background, lime headline *"Bring your next plants home"*, and a **3D animated plant** on the right.
+
 ## Installation
 
 ```bash
