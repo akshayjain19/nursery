@@ -70,6 +70,6 @@ If unstyled: the Tailwind CDN script in `app/layout.tsx` isn't loading. Try:
 ## Repository
 
 **GitHub:** https://github.com/akshayjain19/nursery  
-**Branch:** `main`  
+**Branches:** `dev` (development) · `main` (production)  
 **Latest commit:** See `git log --oneline -1`  
-**Vercel project:** nursery-fawn (connected to main branch, auto-deploys)
+**Vercel project:** nursery-fawn (production deploys from `main`)

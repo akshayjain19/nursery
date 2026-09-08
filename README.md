@@ -13,11 +13,40 @@ A static Next.js website for **Indore Nursery**, a plant nursery business based 
 ```bash
 git clone https://github.com/akshayjain19/nursery.git
 cd nursery
+git checkout dev
 npm install
 npm run dev
 ```
 
 Open http://localhost:3000
+
+## Branches
+
+This repo uses **two branches only**:
+
+| Branch | Purpose |
+|--------|---------|
+| `dev` | Day-to-day feature work — always branch from and push here |
+| `main` | Production — merge `dev` into `main` when ready to deploy |
+
+```bash
+# Daily development (Windows: Command Prompt, PowerShell, or Git Bash)
+git checkout dev
+git pull origin dev
+# ... make changes ...
+git add .
+git commit -m "Your message"
+git push origin dev
+
+# Release to production
+git checkout main
+git pull origin main
+git merge dev
+git push origin main
+git checkout dev
+```
+
+Do not create feature branches. All work happens on `dev`.
 
 ## Build & Deploy
 
@@ -26,7 +55,7 @@ npm run build   # production build
 npm start       # run production build locally
 ```
 
-Deployment is automatic via Vercel on every push to `main`.
+Vercel production deploys automatically on every push to `main`.
 
 ## Key Files
 

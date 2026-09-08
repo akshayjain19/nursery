@@ -90,7 +90,7 @@ This is your **recurring revenue model**:
 - **Custom Domain:** Add your domain in Vercel settings
 - **Analytics:** Vercel provides free analytics
 - **Environment:** Production auto-deploys from `main` branch
-- **Preview URLs:** Feature branches get preview URLs
+- **Preview URLs:** Pushes to `dev` get Vercel preview URLs; merge `dev` → `main` for production
 
 ## 🆘 Support
 

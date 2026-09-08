@@ -11,8 +11,35 @@
 ```bash
 git clone https://github.com/akshayjain19/nursery.git
 cd nursery
+git checkout dev
 npm install
 ```
+
+## Git Workflow
+
+Only two branches exist: **`dev`** and **`main`**.
+
+- **`dev`** — build and test all features here
+- **`main`** — production releases only; Vercel auto-deploys from this branch
+
+```bash
+# Start work
+git checkout dev
+git pull origin dev
+
+# After changes
+git add .
+git commit -m "Describe your change"
+git push origin dev
+
+# Ship to production
+git checkout main
+git merge dev
+git push origin main
+git checkout dev
+```
+
+Never create additional branches.
 
 ## Local Development
 
