@@ -20,6 +20,8 @@ npm run dev
 
 Open http://localhost:3000
 
+**Windows:** Run these inside the `nursery` folder (not `C:\WINDOWS\system32`). If PowerShell blocks `npm`, see [SETUP.md](./SETUP.md#windows-setup).
+
 ## Branches
 
 This repo uses **two branches only**:

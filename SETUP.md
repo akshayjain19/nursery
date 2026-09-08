@@ -2,9 +2,56 @@
 
 ## Prerequisites
 
-- Node.js 20 or later
-- npm 10+
-- Git
+- Node.js 20 or later ([nodejs.org](https://nodejs.org/) — choose the LTS installer for Windows)
+- npm 10+ (included with Node.js)
+- Git ([git-scm.com](https://git-scm.com/download/win))
+
+## Windows Setup
+
+### 1. Open a terminal in the project folder
+
+`C:\WINDOWS\system32` is **not** the project. You must be inside the cloned repo.
+
+**Option A — clone fresh (first time):**
+```powershell
+cd $HOME\Documents
+git clone https://github.com/akshayjain19/nursery.git
+cd nursery
+```
+
+**Option B — already cloned:** open File Explorer, go to your `nursery` folder, then:
+- Right-click inside the folder → **Open in Terminal**, or
+- In PowerShell: `cd C:\Users\YourName\Documents\nursery` (use your actual path)
+
+Confirm you're in the right place — this should show `.git`:
+```powershell
+git status
+```
+
+### 2. Fix the npm PowerShell error
+
+If you see *"running scripts is disabled on this system"*, run **PowerShell as Administrator** once:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+Type `Y` to confirm, close that window, then open a normal terminal in the `nursery` folder.
+
+**Alternatives (no policy change):**
+- Use **Git Bash** (installed with Git for Windows) instead of PowerShell
+- Or use **Command Prompt** (`cmd`) — `npm install` works there without the script policy issue
+
+### 3. Install and run
+
+```powershell
+git checkout dev
+git pull origin dev
+npm install
+npm run dev
+```
+
+Open http://localhost:3000 in your browser. Hard refresh: `Ctrl + Shift + R`.
 
 ## Installation
 
