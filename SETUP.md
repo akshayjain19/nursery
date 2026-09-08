@@ -36,8 +36,8 @@ If `git` is still not recognized, Git is not installed or the terminal was not r
 **No Git?** You can download the repo as a ZIP instead:
 1. Open https://github.com/akshayjain19/nursery  
 2. Click **Code** → **Download ZIP**  
-3. Extract to `C:\Users\lenovo\Documents\nursery`  
-4. `cd C:\Users\lenovo\Documents\nursery`  
+3. Extract to `C:\Users\Guest_NEW\Documents\nursery`  
+4. `cd C:\Users\Guest_NEW\Documents\nursery`  
 5. `npm install` then `npm run dev`  
 
 ZIP works for running locally, but install Git when you want to push changes.
@@ -53,7 +53,8 @@ cd nursery
 
 **Option B — already cloned:** open File Explorer, go to your `nursery` folder, then:
 - Right-click inside the folder → **Open in Terminal**, or
-- In PowerShell: `cd C:\Users\YourName\Documents\nursery` (use your actual path)
+- In PowerShell: `cd $HOME\Documents\nursery`  
+  (e.g. `C:\Users\Guest_NEW\Documents\nursery`)
 
 Confirm you're in the right place — this should show `.git`:
 ```powershell
