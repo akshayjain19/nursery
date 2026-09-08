@@ -2,13 +2,45 @@
 
 ## Prerequisites
 
-- Node.js 20 or later ([nodejs.org](https://nodejs.org/) — choose the LTS installer for Windows)
-- npm 10+ (included with Node.js)
-- Git ([git-scm.com](https://git-scm.com/download/win))
+Install these **before** running any commands:
+
+1. **Git for Windows** — https://git-scm.com/download/win  
+   - Use default options during install  
+   - **Close and reopen** PowerShell after install (required for `git` to be recognized)
+
+2. **Node.js LTS** — https://nodejs.org/  
+   - Includes npm  
+   - Restart terminal after install
+
+Verify both work in a **new** PowerShell window:
+
+```powershell
+git --version
+node --version
+npm --version
+```
+
+If `git` is still not recognized, Git is not installed or the terminal was not restarted.
 
 ## Windows Setup
 
-### 1. Open a terminal in the project folder
+### Git not recognized?
+
+`git : The term 'git' is not recognized` means **Git is not installed**.
+
+1. Download and install: https://git-scm.com/download/win  
+2. **Close PowerShell completely** and open a new window  
+3. Run `git --version` — you should see something like `git version 2.x.x`  
+4. Then clone again (see step 1 above)
+
+**No Git?** You can download the repo as a ZIP instead:
+1. Open https://github.com/akshayjain19/nursery  
+2. Click **Code** → **Download ZIP**  
+3. Extract to `C:\Users\lenovo\Documents\nursery`  
+4. `cd C:\Users\lenovo\Documents\nursery`  
+5. `npm install` then `npm run dev`  
+
+ZIP works for running locally, but install Git when you want to push changes.
 
 `C:\WINDOWS\system32` is **not** the project. You must be inside the cloned repo.
 
