@@ -114,7 +114,26 @@ If the site still looks **cream/light** (old design), your folder has **stale co
 
 5. **Hard refresh** the browser: `Ctrl + Shift + R`
 
-You should see a **dark green** background, lime headline *"Bring your next plants home"*, and a **3D animated plant** on the right.
+You should see a **dark green** background, lime headline *"Bring your next plants home"*, and your **Lottie animation** on the right.
+
+### Lottie plant not showing?
+
+If you still see a **photo** of potted plants, you have **old code**. Run:
+
+```powershell
+git pull origin dev
+npm install
+npm run dev
+```
+
+Confirm: `git log --oneline -1` should mention **Lottie**.
+
+Your file must be named exactly **`hero-plant.json`** at:
+`C:\Users\Guest_NEW\Documents\nursery\public\lottie\hero-plant.json`
+
+Turn on **View → File name extensions** in Explorer — it must not be `hero-plant.json.txt`.
+
+Restart the dev server and hard-refresh (`Ctrl+Shift+R`).
 
 ## Installation
 

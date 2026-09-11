@@ -53,8 +53,8 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
           className="relative z-10 mx-auto flex h-[360px] w-full max-w-md items-center justify-center sm:h-[400px] md:h-[460px] lg:max-w-lg lg:h-[500px]"
         >
-          <div className="absolute inset-4 overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-b from-white/10 to-forest-panel/60 backdrop-blur-sm" />
-          <div className="relative z-10 h-full w-full min-h-[300px] p-4 sm:p-6">
+          <div className="absolute inset-4 overflow-hidden rounded-3xl border border-white/5 bg-forest-panel/30 backdrop-blur-sm" />
+          <div className="relative z-10 flex h-full w-full min-h-[300px] items-center justify-center p-2 sm:p-4">
             <HeroPlant />
           </div>
         </motion.div>
